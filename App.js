@@ -17,13 +17,10 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen name="DoomScroll" component={HomeScreen} />
-          <Stack.Screen name="Disaster Categories" component={CategoryScreen} />
-          <Stack.Screen
-            name="Your Disaster"
-            component={DisasterDetailsScreen}
-          />
-          <Stack.Screen name="Search" component={SearchScreen} />
-          <Stack.Screen name="Search Results" component={FilteredScreen} />
+          <Stack.Screen name="Doom Categories" component={CategoryScreen} />
+          <Stack.Screen name="Doom Details" component={DisasterDetailsScreen} />
+          <Stack.Screen name="Search for Doom" component={SearchScreen} />
+          <Stack.Screen name="Doom Results" component={FilteredScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
