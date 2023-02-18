@@ -8,19 +8,28 @@ import CategoryScreen from "./Screens/CategoryScreen";
 import SearchScreen from "./Screens/SearchScreen";
 import FilteredScreen from "./Screens/FilteredScreen";
 import DisasterDetailsScreen from "./Screens/DisasterDetailsScreen";
+import { useEffect, useState } from "react";
+import fetchEarthquakeData from "./ApiCalls/apiCalls";
 
 const Stack = createNativeStackNavigator();
 
+
+
 export default function App() {
+
+  useEffect(() => {
+    console.log(fetchEarthquakeData());
+  }, [])
+
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider>?
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen name="DoomScroll" component={HomeScreen} />
           <Stack.Screen name="Doom Categories" component={CategoryScreen} />
           <Stack.Screen name="Doom Details" component={DisasterDetailsScreen} />
           <Stack.Screen name="Search for Doom" component={SearchScreen} />
-          <Stack.Screen name="Doom Results" component={FilteredScreen} />
+          <Stack.Screen name="Meet Your Doom" component={FilteredScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
