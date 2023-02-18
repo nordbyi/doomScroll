@@ -1,4 +1,4 @@
-const fetchEarthquakeData = async () => {
+export const fetchEarthquakeData = () => {
   const options = {
     method: "GET",
     headers: {
@@ -7,16 +7,14 @@ const fetchEarthquakeData = async () => {
     },
   };
 
-  try {
-    const response = await fetch(
-      "https://everyearthquake.p.rapidapi.com/earthquakes?start=1&count=100&type=earthquake&latitude=33.962523&longitude=-118.3706975&radius=1000&units=miles&magnitude=3&intensity=1",
-      options
-    );
-    const data = await response.json();
-    return data.data[0];
-  } catch {
-    throw new Error("Something went wrong.");
-  }
+  return fetch(
+    "https://everyearthquake.p.rapidapi.com/earthquakes?start=1&count=100&type=earthquake&latitude=33.962523&longitude=-118.3706975&radius=1000&units=miles&magnitude=3&intensity=1",
+    options
+  );
 };
 
-export default fetchEarthquakeData;
+export const fetchDisasterData = async (endpoint) => {
+  return await fetch(
+    `https://eonet.gsfc.nasa.gov/api/v3/events?category=${endpoint}`
+  );
+};
