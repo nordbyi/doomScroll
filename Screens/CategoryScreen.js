@@ -1,26 +1,28 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
 import { fetchEarthquakeData, fetchDisasterData } from "../ApiCalls/apiCalls";
+import DisasterDetailsScreen from "./DisasterDetailsScreen";
 
-export default function CategoryScreen({ route }) {
+
+export default function CategoryScreen({ route, navigation }) {
   console.log(route)
   const [disasterData, setDisasterData] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
   
   useEffect(() => {
     setIsLoading(true)
     if (route.params === "earthquakes") {
     fetchEarthquakeData().then(res => res.json()).then(data => {
-      const mappedEarthquake = data.map(data => {
-        console.log(data)
+      const mappedEarthquake = data.data.map(data => {
         return {
-          id: data.data.id,
-          title: data.data.title,
-          date: data.data.date,
-          location: data.data.location,
-          magnitude: data.data.magnitude,
-          source: data.data.url
+          id: data.id,
+          title: data.title,
+          date: data.date,
+          location: data.location,
+          magnitude: data.magnitude,
+          source: data.url
         }
       })
     setDisasterData(mappedEarthquake)
@@ -29,25 +31,19 @@ export default function CategoryScreen({ route }) {
     } else {
       setIsLoading(true)
       fetchDisasterData(route.params).then(res => res.json()).then(data => {
-        console.log(data)
-        const mappedData = data.map(data => {
-          
+        const mappedData = data.events.map(data => {
          return {
-          id: data.events.id,
-          title: data.events.title,
-          coordinates: data.events.geometry,
-          source: data.events.sources.url
+          id: data.id,
+          title: data.title,
+          coordinates: data.geometry,
+          source: data.sources.url
         }
         })
-      
         setDisasterData(mappedData)
         setIsLoading(false)
       }).catch(err => setError(err));
     }
   }, []);
-  // console.log("earthquake bithc", earthquakeData);
-  console.log("disaster babyyyy", disasterData);
-  console.log("eroroeiwshfeuow", error);
 
   const pressHandler = (item) => {
     navigation.navigate("Doom Details", item)
@@ -64,9 +60,6 @@ export default function CategoryScreen({ route }) {
           </TouchableOpacity>
         )}
       />
-
-  
-      <Text>Hello</Text>
     </View>
   );
 }
