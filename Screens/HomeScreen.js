@@ -1,17 +1,18 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from "react-native";
 import React from "react";
+import CategoryScreen from "./CategoryScreen";
 
 export default function HomeScreen({navigation}) {
   const categories = [
-    { id: 1, type: "Earthquakes" },
-    { id: 2, type: "Volcanoes" },
-    { id: 3, type: "Wildfires" },
-    { id: 4, type: "Severe Storms" },
+    { id: 1, type: "Earthquakes", endpoint: "earthquakes"},
+    { id: 2, type: "Volcanoes", endpoint: "volcanoes"},
+    { id: 3, type: "Wildfires", endpoint: "wildfires"},
+    { id: 4, type: "Severe Storms", endpoint: "severeStorms" },
   ];
 
-  const pressHandler = () => {
-    navigation.navigate("Doom List")
-  }
+  const pressHandler = (endpoint) => {
+    navigation.navigate("Doom List", endpoint)
+  };
 
   return (
     <View>
@@ -19,7 +20,7 @@ export default function HomeScreen({navigation}) {
         data={categories}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <TouchableOpacity style={styles.box} onPress={pressHandler}>
+          <TouchableOpacity style={styles.box} onPress={() => pressHandler(item.endpoint)}>
             <Text style={styles.text}>{item.type}</Text>
           </TouchableOpacity>
         )}
