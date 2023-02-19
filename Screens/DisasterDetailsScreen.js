@@ -1,11 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 
-export default function DisasterDetailsScreen() {
+export default function DisasterDetailsScreen({ route }) {
 
   return (
     <View>
-      <Text>BURN IN HELL</Text>
+      <Text>{route.params.title}</Text>
+      <Text>{route.params.date}</Text>
+      <Text>{route.params.location}</Text>
+      <Text>{route.params.magnitude}</Text>
+      <Text>{route.params.source}</Text>
     </View>
   );
 }
