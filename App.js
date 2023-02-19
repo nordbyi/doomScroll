@@ -15,16 +15,16 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
 
-  const [earthquakeData, setEarthquakeData] = useState([]);
-  const [disasterData, setDisasterData] = useState([]);
+//   const [earthquakeData, setEarthquakeData] = useState([]);
+//   const [disasterData, setDisasterData] = useState([]);
   
-  useEffect(() => {
-    fetchEarthquakeData().then(res => res.json()).then(data => setEarthquakeData(data.data[0]));
-    fetchDisasterData("wildfires").then(res => res.json()).then(data => console.log(data.events[0]));
-    fetchDisasterData("severeStorms").then(res => res.json()).then(data => console.log(data.events[0]));
-    fetchDisasterData("volcanoes").then(res => res.json()).then(data => console.log(data.events[0]));
-  }, []);
- 
+//   useEffect(() => {
+//     fetchEarthquakeData().then(res => res.json()).then(data => setEarthquakeData(data.data[0]));
+//     fetchDisasterData("wildfires").then(res => res.json()).then(data => console.log(data.events[0]));
+//     fetchDisasterData("severeStorms").then(res => res.json()).then(data => console.log(data.events[0]));
+//     fetchDisasterData("volcanoes").then(res => res.json()).then(data => console.log(data.events[0]));
+//   }, []);
+//  console.log("earthquaaaake", earthquakeData);
 
   return (
     <SafeAreaProvider>
