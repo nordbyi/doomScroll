@@ -18,3 +18,9 @@ export const fetchDisasterData = async (endpoint) => {
     `https://eonet.gsfc.nasa.gov/api/v3/events?category=${endpoint}`
   );
 };
+
+export const fetchAsteroidData = async () => {
+  return await fetch(
+    'https://api.nasa.gov/neo/rest/v1/neo/3542519?api_key=ulYarcl0ipmJHoBBNmBNixfTTrlW1wVK5kNAsMGc'
+  )
+}
