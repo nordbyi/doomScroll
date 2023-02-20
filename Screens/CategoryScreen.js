@@ -5,12 +5,12 @@ import DisasterDetailsScreen from "./DisasterDetailsScreen";
 
 
 export default function CategoryScreen({ route, navigation }) {
-  console.log(route)
+  // console.log(route)
   const [disasterData, setDisasterData] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log(disasterData)
+
   useEffect(() => {
     setIsLoading(true)
     if (route.params === "earthquakes") {
@@ -28,23 +28,13 @@ export default function CategoryScreen({ route, navigation }) {
     setDisasterData(mappedEarthquake)
     setIsLoading(false)
   }).catch(err => setError(err));
-
     } else if(route.params === 'asteroids') {
-      fetchAsteroidData().then(res => res.json()).then(data => {
-        console.log(Array.isArray(data.close_approach_data))
-        const filter = data["close_approach_data"].filter(data => {
-          console.log("data", data)
-         return parseInt(data.close_approach_date.subString(0, 4)) > 2022
-        })
-        
-        console.log("filter", filter)
+      fetchAsteroidData().then(res => res.json()).then(data => {  
         const mappedAsteroids = data.close_approach_data.reduce((acc, cur) => {
-          console.log(cur.close_approach_date)
-          if(Number(cur.close_approach_date.subString(0, 4)) > 2022) {
-            
+          if(Number(cur.close_approach_date.substring(0, 4)) > 2022) {
             const newAsteroid = {
               id: cur.epoch_date_close_approach,
-              title: "Something Coming to Earth very soon",
+              title: `Doom Approach Date: ${cur.close_approach_date_full}`,
               closeApproachDate: cur.close_approach_date_full,
               relativeVelocity: cur.relative_velocity,
               missDistance: cur.miss_distance,
@@ -54,9 +44,8 @@ export default function CategoryScreen({ route, navigation }) {
           }
           return acc
         },[])
-       
-       setDisasterData(mappedAsteroids);
-       setIsLoading(false)
+      setDisasterData(mappedAsteroids);
+      setIsLoading(false)
       }).catch(err => setError(err))
     } else {
       setIsLoading(true)
