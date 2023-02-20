@@ -18,7 +18,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.turing.doomScroll",
+      "supportsTablet": true,
+      "config": {
+        "googleMapsApiKey": "AIzaSyDZ7nH12tfXxshu5FLj_HtPA3YJ8I4mhdw"
+        }
     },
     "android": {
       "adaptiveIcon": {
