@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+import MapStyling from "./MapStyling";
 
 
 export default function DisasterDetailsScreen({ route }) {
@@ -23,8 +24,8 @@ export default function DisasterDetailsScreen({ route }) {
 
   } else {
     data = <View>
-      <Text>{route.params.coordinates[0].coordinates[0]}, {route.params.coordinates[0].coordinates[1]}</Text>
-      <Text>{route.params.source && route.params.source}</Text>
+      <Text>Doom Coordinates: {route.params.coordinates[0].coordinates[0]}, {route.params.coordinates[0].coordinates[1]}</Text>
+      <Text>{route.params.source && `Read here for more doom: ${route.params.source}`}</Text>
     </View>
   }
 
@@ -34,11 +35,15 @@ export default function DisasterDetailsScreen({ route }) {
         style ={{height: '50%', width: '100%'}}
         provider={PROVIDER_GOOGLE}
         initialRegion={{
-        latitude: 37.78825,
-        longitude: -122.4324,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421}}/>
-      <Text>{route.params.title}</Text>
+        latitude: route.params.coordinates[0].coordinates[1],
+        longitude: route.params.coordinates[0].coordinates[0],
+        latitudeDelta: 0.3,
+        longitudeDelta: 0.0421}}
+        >
+          <Marker coordinate={{latitude: route.params.coordinates[0].coordinates[1],
+        longitude: route.params.coordinates[0].coordinates[0],}}/>
+        </MapView>
+      <Text>Name: {route.params.title}</Text>
       {data}
     </View>
   );
