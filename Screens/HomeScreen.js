@@ -8,6 +8,7 @@ export default function HomeScreen({navigation}) {
     { id: 2, type: "Volcanoes", endpoint: "volcanoes"},
     { id: 3, type: "Wildfires", endpoint: "wildfires"},
     { id: 4, type: "Severe Storms", endpoint: "severeStorms" },
+    { id: 5, type: "Asteroids Coming to Earth", endpoint: "asteroids"}
   ];
 
   const pressHandler = (endpoint) => {
