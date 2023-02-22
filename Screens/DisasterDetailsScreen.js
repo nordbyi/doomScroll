@@ -40,8 +40,9 @@ export default function DisasterDetailsScreen({ route }) {
         latitudeDelta: 0.3,
         longitudeDelta: 0.0421}}
         >
-          <Marker coordinate={{latitude: route.params.coordinates[0].coordinates[1],
-        longitude: route.params.coordinates[0].coordinates[0],}}/>
+          <Marker 
+          coordinate={{latitude: route.params.coordinates[0].coordinates[1], 
+          longitude: route.params.coordinates[0].coordinates[0],}}/>
         </MapView>
       <Text>Name: {route.params.title}</Text>
       {data}
