@@ -8,9 +8,10 @@ import SearchForm from "./SearchForm";
 export default function CategoryScreen({ route, navigation }) {
   // console.log(route)
   const [disasterData, setDisasterData] = useState([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
+  const [search, setSearch] = useState('')
+  const [filteredData, setFilteredData] = useState([])
 
 
   useEffect(() => {
@@ -70,11 +71,18 @@ export default function CategoryScreen({ route, navigation }) {
     navigation.navigate("Doom Details", item)
   }
 
+  useEffect(() => {
+    const filteredDisasterData = disasterData.filter((el) => {
+      return el.title.toLowerCase().includes(search.toLowerCase())
+    })
+    setFilteredData(filteredDisasterData)
+  }, [search, disasterData])
+
   return (
     <View>
-      <SearchForm />
+      <SearchForm getSearch={setSearch}/>
       <FlatList 
-        data={disasterData}
+        data={filteredData}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity style={styles.box} onPress={() => pressHandler(item)}>
