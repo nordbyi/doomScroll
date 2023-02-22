@@ -1,10 +1,17 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, TextInput, View } from "react-native";
+import React, { useState } from "react";
 
-export default function SearchScreen() {
+export default function SearchForm() {
+  const [search, setSearch] = useState('')
   return (
     <View>
-      <Text>SEARCH</Text>
+      <TextInput 
+      // style={}
+      placeholder="Search"
+      type="text"
+      value={search}
+      onChangeText={setSearch}
+      />
     </View>
   );
 }
