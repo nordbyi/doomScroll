@@ -1,8 +1,14 @@
 import { StyleSheet, TextInput, View } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function SearchForm() {
+export default function SearchForm({getSearch}) {
+
   const [search, setSearch] = useState('')
+  
+  useEffect(() => {
+    getSearch(search)
+  }, [search])
+  
   return (
     <View>
       <TextInput 
