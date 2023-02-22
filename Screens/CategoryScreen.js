@@ -2,13 +2,16 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity } from "react-native
 import React, { useEffect, useState } from "react";
 import { fetchEarthquakeData, fetchDisasterData, fetchAsteroidData } from "../ApiCalls/apiCalls";
 import DisasterDetailsScreen from "./DisasterDetailsScreen";
+import SearchForm from "./SearchForm";
 
 
 export default function CategoryScreen({ route, navigation }) {
   // console.log(route)
   const [disasterData, setDisasterData] = useState([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [search, setSearch] = useState('')
+  const [filteredData, setFilteredData] = useState([])
 
 
   useEffect(() => {
@@ -31,7 +34,7 @@ export default function CategoryScreen({ route, navigation }) {
     } else if(route.params === 'asteroids') {
       fetchAsteroidData().then(res => res.json()).then(data => {  
         const mappedAsteroids = data.close_approach_data.reduce((acc, cur) => {
-          if(Number(cur.close_approach_date.substring(0, 4)) > 2022) {
+          if (Number(cur.close_approach_date.substring(0, 4)) > 2022) {
             const newAsteroid = {
               id: cur.epoch_date_close_approach,
               title: `Doom Approach Date: ${cur.close_approach_date_full}`,
@@ -68,10 +71,18 @@ export default function CategoryScreen({ route, navigation }) {
     navigation.navigate("Doom Details", item)
   }
 
+  useEffect(() => {
+    const filteredDisasterData = disasterData.filter((el) => {
+      return el.title.toLowerCase().includes(search.toLowerCase())
+    })
+    setFilteredData(filteredDisasterData)
+  }, [search, disasterData])
+
   return (
     <View>
+      <SearchForm getSearch={setSearch}/>
       <FlatList 
-        data={disasterData}
+        data={filteredData}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity style={styles.box} onPress={() => pressHandler(item)}>
