@@ -31,7 +31,7 @@ export default function DisasterDetailsScreen({ route }) {
 
   return (
     <View>
-      <MapView 
+      {route.params.coordinates && <MapView 
         style ={{height: '50%', width: '100%'}}
         provider={PROVIDER_GOOGLE}
         initialRegion={{
@@ -43,7 +43,7 @@ export default function DisasterDetailsScreen({ route }) {
           <Marker 
           coordinate={{latitude: route.params.coordinates[0].coordinates[1], 
           longitude: route.params.coordinates[0].coordinates[0],}}/>
-        </MapView>
+        </MapView>}
       <Text>Name: {route.params.title}</Text>
       {data}
     </View>
