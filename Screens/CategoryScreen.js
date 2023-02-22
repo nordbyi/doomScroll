@@ -25,7 +25,11 @@ export default function CategoryScreen({ route, navigation }) {
           date: data.date,
           location: data.location,
           magnitude: data.magnitude,
-          source: data.url
+          source: data.url,
+          coordinates: [{
+            coordinates: [data.longitude, data.latitude]
+          }
+          ]
         }
       })
     setDisasterData(mappedEarthquake)
