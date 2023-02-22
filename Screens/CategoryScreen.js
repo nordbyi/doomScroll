@@ -31,7 +31,7 @@ export default function CategoryScreen({ route, navigation }) {
     } else if(route.params === 'asteroids') {
       fetchAsteroidData().then(res => res.json()).then(data => {  
         const mappedAsteroids = data.close_approach_data.reduce((acc, cur) => {
-          if(Number(cur.close_approach_date.substring(0, 4)) > 2022) {
+          if (Number(cur.close_approach_date.substring(0, 4)) > 2022) {
             const newAsteroid = {
               id: cur.epoch_date_close_approach,
               title: `Doom Approach Date: ${cur.close_approach_date_full}`,
