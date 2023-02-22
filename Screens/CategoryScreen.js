@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity } from "react-native
 import React, { useEffect, useState } from "react";
 import { fetchEarthquakeData, fetchDisasterData, fetchAsteroidData } from "../ApiCalls/apiCalls";
 import DisasterDetailsScreen from "./DisasterDetailsScreen";
+import SearchForm from "./SearchForm";
 
 
 export default function CategoryScreen({ route, navigation }) {
@@ -9,7 +10,7 @@ export default function CategoryScreen({ route, navigation }) {
   const [disasterData, setDisasterData] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  
+
 
 
   useEffect(() => {
@@ -71,7 +72,7 @@ export default function CategoryScreen({ route, navigation }) {
 
   return (
     <View>
-      
+      <SearchForm />
       <FlatList 
         data={disasterData}
         keyExtractor={(item) => item.id}
