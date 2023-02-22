@@ -9,6 +9,7 @@ export default function CategoryScreen({ route, navigation }) {
   const [disasterData, setDisasterData] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  
 
 
   useEffect(() => {
@@ -70,6 +71,7 @@ export default function CategoryScreen({ route, navigation }) {
 
   return (
     <View>
+      
       <FlatList 
         data={disasterData}
         keyExtractor={(item) => item.id}
