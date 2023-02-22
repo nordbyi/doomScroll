@@ -12,7 +12,7 @@ export default function SearchForm({getSearch}) {
   return (
     <View>
       <TextInput 
-      // style={}
+      style={styles.search}
       placeholder="Search"
       type="text"
       value={search}
@@ -22,4 +22,10 @@ export default function SearchForm({getSearch}) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  search: {
+    height: 50,
+    backgroundColor: "#1e2f42",
+    color: "#e7e5d7"
+  }
+});

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { startTransition, useEffect, useState } from "react";
 import { fetchEarthquakeData, fetchDisasterData, fetchAsteroidData } from "../ApiCalls/apiCalls";
 import DisasterDetailsScreen from "./DisasterDetailsScreen";
 import SearchForm from "./SearchForm";
@@ -83,8 +83,8 @@ export default function CategoryScreen({ route, navigation }) {
   }, [search, disasterData])
 
   return (
-    <View>
-      <SearchForm getSearch={setSearch}/>
+    <View style={styles.screen}>
+      <SearchForm getSearch={setSearch} />
       <FlatList 
         data={filteredData}
         keyExtractor={(item) => item.id}
@@ -98,4 +98,17 @@ export default function CategoryScreen({ route, navigation }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  screen: {
+    backgroundColor: "#020d19",
+    height: "100%"
+  },
+  text: {
+    color: "#e7e5d7",
+    textAlign: "center",
+    fontSize: 25
+  },
+  box: {
+    height: 30
+  }
+});
