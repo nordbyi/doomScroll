@@ -4,19 +4,19 @@ import CategoryScreen from "./CategoryScreen";
 
 export default function HomeScreen({navigation}) {
   const categories = [
-    { id: 1, type: "Earthquakes", endpoint: "earthquakes", image: "assets/redHouse.png"},
-    { id: 2, type: "Volcanoes", endpoint: "volcanoes", image: "assets/redHouse.png"},
-    { id: 3, type: "Wildfires", endpoint: "wildfires", image: "assets/redHouse.png"},
-    { id: 4, type: "Severe Storms", endpoint: "severeStorms", image: "assets/redHouse.png" },
-    { id: 5, type: "Asteroids Coming to Earth", endpoint: "asteroids", image: "assets/redHouse.png"}
+    { id: 1, type: "Earthquakes", endpoint: "earthquakes"},
+    { id: 2, type: "Volcanoes", endpoint: "volcanoes"},
+    { id: 3, type: "Wildfires", endpoint: "wildfires"},
+    { id: 4, type: "Severe Storms", endpoint: "severeStorms"},
+    { id: 5, type: "Asteroids", endpoint: "asteroids"}
   ];
   
   const [images, setImages] = useState([
-    require("../assets/redHouse.png"),
-    require("../assets/redHouse.png"),
-    require("../assets/redHouse.png"),
-    require("../assets/redHouse.png"),
-    require("../assets/redHouse.png")
+    require("../assets/redHouse1.png"),
+    require("../assets/volcano1.png"),
+    require("../assets/wildfire1.png"),
+    require("../assets/storm.png"),
+    require("../assets/asteroid.png")
   ])
 
   const pressHandler = (endpoint) => {
@@ -41,9 +41,12 @@ export default function HomeScreen({navigation}) {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 40,
+    fontSize: 30,
     color: "#e7e5d7",
-    textAlign: "center"
+    textAlign: "center",
+    padding: 10,
+    flexShrink: 1,
+    marginLeft: 15
   },
   box: {
     // marginVertical: 15,
@@ -52,17 +55,16 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     height: 150,
-    alignItems: "center"
+    alignItems: "center",
+    paddingLeft: 20,
+    marginBottom: 20
   },
   screen: {
     backgroundColor: "#020d19",
     height: "100%",
   },
-  headerStyle: {
-    backgroundColor: "#001D3D"
-  },
   image: {
-    height: 50,
-    width: 50
+    height: 70,
+    width: 85
   }
 });
