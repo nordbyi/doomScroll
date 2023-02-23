@@ -3,10 +3,11 @@ import React, { startTransition, useEffect, useState } from "react";
 import { fetchEarthquakeData, fetchDisasterData, fetchAsteroidData } from "../ApiCalls/apiCalls";
 import DisasterDetailsScreen from "./DisasterDetailsScreen";
 import SearchForm from "./SearchForm";
+import { useFonts, Oswald_400Regular } from "@expo-google-fonts/oswald";
 
 
 export default function CategoryScreen({ route, navigation }) {
-  // console.log(route)
+
   const [disasterData, setDisasterData] = useState([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -82,6 +83,14 @@ export default function CategoryScreen({ route, navigation }) {
     setFilteredData(filteredDisasterData)
   }, [search, disasterData])
 
+  let [fontsLoaded] = useFonts({
+    Oswald_400Regular
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <View style={styles.screen}>
       <SearchForm getSearch={setSearch} />
@@ -103,12 +112,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#020d19",
     height: "100%"
   },
-  text: {
-    color: "#e7e5d7",
-    textAlign: "center",
-    fontSize: 25
-  },
   box: {
     height: 30
-  }
+  },
+  text: {
+    fontSize: 20,
+    color: "#e7e5d7",
+    textAlign: "center",
+    flexShrink: 1,
+    fontFamily: "Oswald_400Regular", 
+  },
 });
