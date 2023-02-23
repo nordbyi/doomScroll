@@ -1,9 +1,18 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from "react-native";
-import React, { useState } from "react";
-import CategoryScreen from "./CategoryScreen";
+import React, { useEffect, useState } from "react";
+import LoadingScreen from "./LoadingScreen";
 import { useFonts, Oswald_400Regular } from "@expo-google-fonts/oswald";
 
 export default function HomeScreen({navigation}) {
+  const [loading, setLoading] = useState(true)
+
+  // useEffect(() => {
+  //   setLoading(true)
+  //   setInterval(() => {
+  //     setLoading(false)
+  //   }, 2000)
+  // }, [])
+  
   const categories = [
     { id: 1, type: "Earthquakes", endpoint: "earthquakes"},
     { id: 2, type: "Volcanoes", endpoint: "volcanoes"},
@@ -34,6 +43,7 @@ export default function HomeScreen({navigation}) {
 
   return (
     <View style={styles.screen}>
+      {loading && <LoadingScreen></LoadingScreen>}
       <FlatList
         data={categories}
         keyExtractor={(item) => item.id}
