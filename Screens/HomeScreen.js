@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
 import CategoryScreen from "./CategoryScreen";
+import { useFonts, Oswald_400Regular } from "@expo-google-fonts/oswald";
 
 export default function HomeScreen({navigation}) {
   const categories = [
@@ -17,7 +18,15 @@ export default function HomeScreen({navigation}) {
     require("../assets/wildfire1.png"),
     require("../assets/storm.png"),
     require("../assets/asteroid.png")
-  ])
+  ]);
+
+  let [fontsLoaded] = useFonts({
+    Oswald_400Regular
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   const pressHandler = (endpoint) => {
     navigation.navigate("Doom List", endpoint)
@@ -46,7 +55,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     padding: 10,
     flexShrink: 1,
-    marginLeft: 15
+    marginLeft: 15,
+    fontFamily: "Oswald_400Regular", 
   },
   box: {
     // marginVertical: 15,
