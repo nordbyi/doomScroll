@@ -1,9 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Linking } from "react-native";
 import React, { useEffect, useState } from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import MapStyling from "./MapStyling";
 import { useFonts, Oswald_400Regular } from "@expo-google-fonts/oswald";
-
 
 export default function DisasterDetailsScreen({ route }) {
 
@@ -12,8 +11,8 @@ export default function DisasterDetailsScreen({ route }) {
     data = <View>
         <Text style={styles.text}>{route.params.date && route.params.date}</Text>
         <Text style={styles.text}>{route.params.location && route.params.location}</Text>
-        <Text style={styles.text}>{route.params.magnitude && route.params.magnitude}</Text>
-        <Text style={styles.text}>{route.params.source && route.params.source}</Text>
+        <Text style={styles.text}>{route.params.magnitude && `Magnitude: ${route.params.magnitude}`}</Text>
+        <Text style={styles.text} onPress={() => Linking.openURL(route.params.source)}>{route.params.source && route.params.source}</Text>
       </View>
   } else if (route.params.missDistance) {
     data = <View>
@@ -24,7 +23,7 @@ export default function DisasterDetailsScreen({ route }) {
   } else {
     data = <View>
       <Text style={styles.text}>Doom Coordinates: {route.params.coordinates[0].coordinates[0]}, {route.params.coordinates[0].coordinates[1]}</Text>
-      <Text style={styles.text}>{route.params.source && `Read here for more doom: ${route.params.source}`}</Text>
+      <Text style={styles.text} onPress={() => Linking.openURL(route.params.source)}>{route.params.source && `Read here for more doom: ${route.params.source}`}</Text>
     </View>
   }
 
