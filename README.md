@@ -1,10 +1,10 @@
 # doomScroll
 
 ### Contributors
-⋅⋅*[Blanche Haddad](https://github.com/BHaddad1)
+[Blanche Haddad](https://github.com/BHaddad1)
 
-⋅⋅*[Angie Staffieri](https://github.com/arstaffieri)
+[Angie Staffieri](https://github.com/arstaffieri)
 
-⋅⋅*[Ian Nordbyi](https://github.com/nordbyi)
+[Ian Nordbyi](https://github.com/nordbyi)
 
-⋅⋅*[Josephine Heidepriem](https://github.com/jheidepriem)
+[Josephine Heidepriem](https://github.com/jheidepriem)
