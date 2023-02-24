@@ -57,7 +57,7 @@ export default function CategoryScreen({ route, navigation }) {
       setIsLoading(false)
       }).catch(err => setError(err))
     } else {
-      setIsLoading(true)
+      // setIsLoading(true)
       fetchDisasterData(route.params).then(res => res.json()).then(data => {
         const mappedData = data.events.map(data => {
          return {
@@ -69,7 +69,7 @@ export default function CategoryScreen({ route, navigation }) {
         })
         setDisasterData(mappedData)
         setIsLoading(false)
-      }).catch(err => setError(err));
+      }).catch(err => setError(err))
     }
   }, []);
 
