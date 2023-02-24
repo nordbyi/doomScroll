@@ -1,10 +1,10 @@
-import { GOOGLE_API_KEY, ASTEROID_API_KEY } from "@env"
+import { ASTEROID_API_KEY, EQ_API_KEY } from "@env"
 
 export const fetchEarthquakeData = () => {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "1ba66df797msha781f34ed6e32a9p18711ejsn08b3a5f6387c",
+      "X-RapidAPI-Key":`${EQ_API_KEY}`,
       "X-RapidAPI-Host": "everyearthquake.p.rapidapi.com",
     },
   };
