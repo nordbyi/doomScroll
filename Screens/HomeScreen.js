@@ -43,7 +43,7 @@ export default function HomeScreen({navigation}) {
 
   return (
     <View style={styles.screen}>
-      {loading && <LoadingScreen></LoadingScreen>}
+      {/* <LoadingScreen></LoadingScreen> */}
       {!loading && <FlatList
         data={categories}
         keyExtractor={(item) => item.id}

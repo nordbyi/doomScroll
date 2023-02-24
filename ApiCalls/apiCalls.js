@@ -1,3 +1,5 @@
+import { GOOGLE_API_KEY, ASTEROID_API_KEY } from "@env"
+
 export const fetchEarthquakeData = () => {
   const options = {
     method: "GET",
@@ -21,6 +23,6 @@ export const fetchDisasterData = async (endpoint) => {
 
 export const fetchAsteroidData = async () => {
   return await fetch(
-    'https://api.nasa.gov/neo/rest/v1/neo/3542519?api_key=ulYarcl0ipmJHoBBNmBNixfTTrlW1wVK5kNAsMGc'
+    `https://api.nasa.gov/neo/rest/v1/neo/3542519?api_key=${ASTEROID_API_KEY}`
   )
 }
