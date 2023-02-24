@@ -3,6 +3,7 @@ import React, { startTransition, useEffect, useState } from "react";
 import { fetchEarthquakeData, fetchDisasterData, fetchAsteroidData } from "../ApiCalls/apiCalls";
 import DisasterDetailsScreen from "./DisasterDetailsScreen";
 import SearchForm from "./SearchForm";
+import LoadingScreen from "./LoadingScreen";
 import { useFonts, Oswald_400Regular } from "@expo-google-fonts/oswald";
 
 
@@ -93,16 +94,21 @@ export default function CategoryScreen({ route, navigation }) {
 
   return (
     <View style={styles.screen}>
-      <SearchForm getSearch={setSearch} />
-      <FlatList 
-        data={filteredData}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <TouchableOpacity style={styles.box} onPress={() => pressHandler(item)}>
-            <Text style={styles.text}>{item.title}</Text>
-          </TouchableOpacity>
-        )}
-      />
+      {isLoading && <LoadingScreen />}
+      {!isLoading && 
+      <View>
+        <SearchForm getSearch={setSearch} />
+        <FlatList 
+          data={filteredData}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <TouchableOpacity style={styles.box} onPress={() => pressHandler(item)}>
+              <Text style={styles.text}>{item.title}</Text>
+            </TouchableOpacity>
+          )}
+        />
+      </View>
+      }
     </View>
   );
 }
