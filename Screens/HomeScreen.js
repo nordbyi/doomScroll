@@ -6,12 +6,12 @@ import { useFonts, Oswald_400Regular } from "@expo-google-fonts/oswald";
 export default function HomeScreen({navigation}) {
   const [loading, setLoading] = useState(true)
 
-  // useEffect(() => {
-  //   setLoading(true)
-  //   setInterval(() => {
-  //     setLoading(false)
-  //   }, 2000)
-  // }, [])
+  useEffect(() => {
+    setLoading(true)
+    setInterval(() => {
+      setLoading(false)
+    }, 3000)
+  }, [])
   
   const categories = [
     { id: 1, type: "Earthquakes", endpoint: "earthquakes"},
@@ -44,7 +44,7 @@ export default function HomeScreen({navigation}) {
   return (
     <View style={styles.screen}>
       {loading && <LoadingScreen></LoadingScreen>}
-      <FlatList
+      {!loading && <FlatList
         data={categories}
         keyExtractor={(item) => item.id}
         renderItem={({ item, index }) => (
@@ -53,7 +53,7 @@ export default function HomeScreen({navigation}) {
             <Text style={styles.text}>{item.type}</Text>
           </TouchableOpacity>
         )}
-      />
+      />}
     </View>
   );
 }

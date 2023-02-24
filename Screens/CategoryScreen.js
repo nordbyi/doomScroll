@@ -3,6 +3,7 @@ import React, { startTransition, useEffect, useState } from "react";
 import { fetchEarthquakeData, fetchDisasterData, fetchAsteroidData } from "../ApiCalls/apiCalls";
 import DisasterDetailsScreen from "./DisasterDetailsScreen";
 import SearchForm from "./SearchForm";
+import LoadingScreen from "./LoadingScreen";
 import { useFonts, Oswald_400Regular } from "@expo-google-fonts/oswald";
 
 
@@ -56,7 +57,7 @@ export default function CategoryScreen({ route, navigation }) {
       setIsLoading(false)
       }).catch(err => setError(err))
     } else {
-      setIsLoading(true)
+      // setIsLoading(true)
       fetchDisasterData(route.params).then(res => res.json()).then(data => {
         const mappedData = data.events.map(data => {
          return {
@@ -68,7 +69,7 @@ export default function CategoryScreen({ route, navigation }) {
         })
         setDisasterData(mappedData)
         setIsLoading(false)
-      }).catch(err => setError(err));
+      }).catch(err => setError(err))
     }
   }, []);
 
@@ -93,16 +94,21 @@ export default function CategoryScreen({ route, navigation }) {
 
   return (
     <View style={styles.screen}>
-      <SearchForm getSearch={setSearch} />
-      <FlatList 
-        data={filteredData}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <TouchableOpacity style={styles.box} onPress={() => pressHandler(item)}>
-            <Text style={styles.text}>{item.title}</Text>
-          </TouchableOpacity>
-        )}
-      />
+      {isLoading && <LoadingScreen />}
+      {!isLoading && 
+      <View>
+        <SearchForm getSearch={setSearch} />
+        <FlatList 
+          data={filteredData}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <TouchableOpacity style={styles.box} onPress={() => pressHandler(item)}>
+              <Text style={styles.text}>{item.title}</Text>
+            </TouchableOpacity>
+          )}
+        />
+      </View>
+      }
     </View>
   );
 }
