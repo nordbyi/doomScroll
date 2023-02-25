@@ -1,10 +1,23 @@
-import { StyleSheet, Text, View, Linking } from "react-native";
+import { StyleSheet, Text, View, Linking, Image } from "react-native";
 import React, { useEffect, useState } from "react";
-import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
+import { fetchStarPhoto } from '../ApiCalls/apiCalls';
 import MapStyling from "./MapStyling";
 import { useFonts, Oswald_400Regular } from "@expo-google-fonts/oswald";
 
 export default function DisasterDetailsScreen({ route }) {
+
+  const [starData, setStarData] = useState({})
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true)
+    fetchStarPhoto().then((response) => response.json()).then((data) => {
+      console.log(data.url)
+      setStarData(data)
+      setLoading(false)
+    })
+  }, [])
 
   let data;
   if (route.params.magnitude) {
@@ -22,6 +35,8 @@ export default function DisasterDetailsScreen({ route }) {
     </View>
   } else {
     data = <View>
+      <Image style={{width: 200,
+        height: 300}} source={{uri: starData.url}}/>
       <Text style={styles.text}>Doom Coordinates: {route.params.coordinates[0].coordinates[0]}, {route.params.coordinates[0].coordinates[1]}</Text>
       <Text style={styles.text} onPress={() => Linking.openURL(route.params.source)}>{route.params.source && `Read here for more doom: ${route.params.source}`}</Text>
     </View>
