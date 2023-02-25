@@ -13,8 +13,7 @@ export default function DisasterDetailsScreen({ route }) {
   useEffect(() => {
     setLoading(true)
     fetchStarPhoto().then((response) => response.json()).then((data) => {
-      console.log(data.url)
-      setStarData(data)
+      setStarData(data.url)
       setLoading(false)
     })
   }, [])
@@ -29,14 +28,13 @@ export default function DisasterDetailsScreen({ route }) {
       </View>
   } else if (route.params.missDistance) {
     data = <View>
+      <Image style={{width: 400, height: 400}} source={{uri: starData}}/>
       <Text style={styles.text}>{route.params.missDistance.miles && `Miss Distance in Miles: ${(+route.params.missDistance.miles).toLocaleString()}`}</Text>
       <Text style={styles.text}>{route.params.relativeVelocity.miles_per_hour && `Relative Velocity in MPH: ${(+route.params.relativeVelocity.miles_per_hour).toLocaleString()}`}</Text>
       <Text style={styles.text}>{route.params.orbitingBody && `Orbiting Body: ${route.params.orbitingBody}`}</Text>
     </View>
   } else {
     data = <View>
-      <Image style={{width: 200,
-        height: 300}} source={{uri: starData.url}}/>
       <Text style={styles.text}>Doom Coordinates: {route.params.coordinates[0].coordinates[0]}, {route.params.coordinates[0].coordinates[1]}</Text>
       <Text style={styles.text} onPress={() => Linking.openURL(route.params.source)}>{route.params.source && `Read here for more doom: ${route.params.source}`}</Text>
     </View>
@@ -65,7 +63,7 @@ export default function DisasterDetailsScreen({ route }) {
           coordinate={{latitude: route.params.coordinates[0].coordinates[1], 
           longitude: route.params.coordinates[0].coordinates[0],}}/>
         </MapView>}
-      <Text style={styles.text}>Name: {route.params.title}</Text>
+      <Text style={styles.text}>{route.params.title}</Text>
       {data}
     </View>
   );
