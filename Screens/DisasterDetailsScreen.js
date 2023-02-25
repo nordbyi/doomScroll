@@ -1,10 +1,22 @@
-import { StyleSheet, Text, View, Linking } from "react-native";
+import { StyleSheet, Text, View, Linking, Image } from "react-native";
 import React, { useEffect, useState } from "react";
-import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
+import { fetchStarPhoto } from '../ApiCalls/apiCalls';
 import MapStyling from "./MapStyling";
 import { useFonts, Oswald_400Regular } from "@expo-google-fonts/oswald";
 
 export default function DisasterDetailsScreen({ route }) {
+
+  const [starData, setStarData] = useState({})
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true)
+    fetchStarPhoto().then((response) => response.json()).then((data) => {
+      setStarData(data)
+      setLoading(false)
+    })
+  }, [])
 
   let data;
   if (route.params.magnitude) {
@@ -16,6 +28,7 @@ export default function DisasterDetailsScreen({ route }) {
       </View>
   } else if (route.params.missDistance) {
     data = <View>
+      <Image style={{width: 400, height: 400}} source={{uri: starData.url}}/>
       <Text style={styles.text}>{route.params.missDistance.miles && `Miss Distance in Miles: ${(+route.params.missDistance.miles).toLocaleString()}`}</Text>
       <Text style={styles.text}>{route.params.relativeVelocity.miles_per_hour && `Relative Velocity in MPH: ${(+route.params.relativeVelocity.miles_per_hour).toLocaleString()}`}</Text>
       <Text style={styles.text}>{route.params.orbitingBody && `Orbiting Body: ${route.params.orbitingBody}`}</Text>
@@ -50,7 +63,7 @@ export default function DisasterDetailsScreen({ route }) {
           coordinate={{latitude: route.params.coordinates[0].coordinates[1], 
           longitude: route.params.coordinates[0].coordinates[0],}}/>
         </MapView>}
-      <Text style={styles.text}>Name: {route.params.title}</Text>
+      <Text style={styles.text}>{route.params.title}</Text>
       {data}
     </View>
   );

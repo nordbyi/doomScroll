@@ -43,77 +43,82 @@ const LoadingScreen = () => {
   // );
 
   return (
-    <View style={styles.container}>
-      
-        <Animated.Image
-          style={[styles.meteor, {
-            transform: [{ rotate: spin }],
-          },]}
-          source={require("../assets/asteroid3.png")}
-        ></Animated.Image>
-     
-      
-        <Image
-          style={styles.earth}
-          source={require("../assets/splash.png")}
-        ></Image>
-     
+    <View>
+    <Animated.View
+      style={[
+        styles.meteorContainer,
+        {
+          transform: [{ rotate: spin }],
+        },
+      ]}
+    >
+      <Image
+        style={styles.meteor}
+        source={require("../assets/asteroid3.png")}
+      ></Image>
+    </Animated.View>
+    <View style={styles.earthContainer}>
+      <Image
+        style={styles.earth}
+        source={require("../assets/splash.png")}
+      ></Image>
     </View>
+  </View>
   );
 };
 
 export default LoadingScreen;
 
-const styles = StyleSheet.create({
-  container: {
-    height: 'auto',
-    width: '100%',
-    position: 'relative',
-    // display: 'grid'
-  },
-  // earthContainer: {
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  // },
-  earth: {
-    position: 'relative',
-    height: "100%",
-    width: "100%",
-    // borderWidth: 5,
-  },
-  // meteorContainer: {
-  //   position: "absolute",
-    // top: 65,
-    // left: 178,
-  // },
-  meteor: {
-    position: 'absolute',
-
-    // height: 350,
-    // width: 30,
-    height: "100%",
-    width: "100%",
-    // borderWidth: 5,
-  },
-});
-
-// working css for iphone 14
 // const styles = StyleSheet.create({
-//   earthContainer: {
-//     justifyContent: "center",
-//     alignItems: "center",
+//   container: {
+//     height: 'auto',
+//     width: '100%',
+//     position: 'relative',
+//     // display: 'grid'
 //   },
+//   // earthContainer: {
+//   //   justifyContent: "center",
+//   //   alignItems: "center",
+//   // },
 //   earth: {
-//     height: "80%",
-//     width: "80%",
+//     position: 'relative',
+//     height: "100%",
+//     width: "100%",
+//     // borderWidth: 5,
 //   },
-//   meteorContainer: {
-//     position: "absolute",
-//     top: 65,
-//     left: 178,
-//   },
+//   // meteorContainer: {
+//   //   position: "absolute",
+//     // top: 65,
+//     // left: 178,
+//   // },
 //   meteor: {
-//     height: 350,
-//     width: 30,
+//     position: 'absolute',
+
+//     // height: 350,
+//     // width: 30,
+//     height: "100%",
+//     width: "100%",
+//     // borderWidth: 5,
 //   },
 // });
+
+// working css for iphone 14
+const styles = StyleSheet.create({
+  earthContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  earth: {
+    height: "80%",
+    width: "80%",
+  },
+  meteorContainer: {
+    position: "absolute",
+    top: 65,
+    left: 178,
+  },
+  meteor: {
+    height: 350,
+    width: 30,
+  },
+});
