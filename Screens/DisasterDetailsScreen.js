@@ -13,7 +13,7 @@ export default function DisasterDetailsScreen({ route }) {
   useEffect(() => {
     setLoading(true)
     fetchStarPhoto().then((response) => response.json()).then((data) => {
-      setStarData(data.url)
+      setStarData(data)
       setLoading(false)
     })
   }, [])
@@ -28,7 +28,7 @@ export default function DisasterDetailsScreen({ route }) {
       </View>
   } else if (route.params.missDistance) {
     data = <View>
-      <Image style={{width: 400, height: 400}} source={{uri: starData}}/>
+      <Image style={{width: 400, height: 400}} source={{uri: starData.url}}/>
       <Text style={styles.text}>{route.params.missDistance.miles && `Miss Distance in Miles: ${(+route.params.missDistance.miles).toLocaleString()}`}</Text>
       <Text style={styles.text}>{route.params.relativeVelocity.miles_per_hour && `Relative Velocity in MPH: ${(+route.params.relativeVelocity.miles_per_hour).toLocaleString()}`}</Text>
       <Text style={styles.text}>{route.params.orbitingBody && `Orbiting Body: ${route.params.orbitingBody}`}</Text>
