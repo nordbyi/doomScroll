@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from "react-native";
 import React, { startTransition, useEffect, useState } from "react";
 import { fetchEarthquakeData, fetchDisasterData, fetchAsteroidData } from "../ApiCalls/apiCalls";
-import DisasterDetailsScreen from "./DisasterDetailsScreen";
 import SearchForm from "./SearchForm";
 import LoadingScreen from "./LoadingScreen";
 import { useFonts, Oswald_400Regular } from "@expo-google-fonts/oswald";
@@ -12,15 +11,23 @@ export default function CategoryScreen({ route, navigation }) {
   const [disasterData, setDisasterData] = useState([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [search, setSearch] = useState('')
-  const [filteredData, setFilteredData] = useState([])
+  const [search, setSearch] = useState('');
+  const [filteredData, setFilteredData] = useState([]);
 
 
   useEffect(() => {
-    setIsLoading(true)
+    setIsLoading(true);
     if (route.params === "earthquakes") {
-    fetchEarthquakeData().then(res => res.json()).then(data => {
-      const mappedEarthquake = data.data.map(data => {
+    fetchEarthquakeData()
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("Something went wrong")
+      } else {
+        return res.json()
+      }
+    })
+    .then(data => {
+      const mappedEarthquakeData = data.data.map(data => {
         return {
           id: data.id,
           title: data.title,
@@ -34,12 +41,20 @@ export default function CategoryScreen({ route, navigation }) {
           ]
         }
       })
-    setDisasterData(mappedEarthquake)
-    setIsLoading(false)
+    setDisasterData(mappedEarthquakeData);
+    setIsLoading(false);
   }).catch(err => setError(err));
     } else if(route.params === 'asteroids') {
-      fetchAsteroidData().then(res => res.json()).then(data => {  
-        const mappedAsteroids = data.close_approach_data.reduce((acc, cur) => {
+      fetchAsteroidData()
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Something went wrong")
+        } else {
+          return res.json()
+        }
+      })
+      .then(data => {  
+        const mappedAsteroidData = data.close_approach_data.reduce((acc, cur) => {
           if (Number(cur.close_approach_date.substring(0, 4)) > 2022) {
             const newAsteroid = {
               id: cur.epoch_date_close_approach,
@@ -49,26 +64,33 @@ export default function CategoryScreen({ route, navigation }) {
               missDistance: cur.miss_distance,
               orbitingBody: cur.orbiting_body
             }
-            return [...acc, newAsteroid]
+            return [...acc, newAsteroid];
           }
-          return acc
-        },[])
-      setDisasterData(mappedAsteroids);
-      setIsLoading(false)
+          return acc;
+        },[]);
+      setDisasterData(mappedAsteroidData);
+      setIsLoading(false);
       }).catch(err => setError(err))
     } else {
-      // setIsLoading(true)
-      fetchDisasterData(route.params).then(res => res.json()).then(data => {
+      fetchDisasterData(route.params)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Something went wrong")
+        } else {
+          return res.json()
+        }
+      })
+      .then(data => {
         const mappedData = data.events.map(data => {
          return {
           id: data.id,
           title: data.title,
           coordinates: data.geometry,
           source: data.sources.url
-        }
-        })
-        setDisasterData(mappedData)
-        setIsLoading(false)
+          }
+        });
+        setDisasterData(mappedData);
+        setIsLoading(false);
       }).catch(err => setError(err))
     }
   }, []);
@@ -80,8 +102,8 @@ export default function CategoryScreen({ route, navigation }) {
   useEffect(() => {
     const filteredDisasterData = disasterData.filter((el) => {
       return el.title.toLowerCase().includes(search.toLowerCase())
-    })
-    setFilteredData(filteredDisasterData)
+    });
+    setFilteredData(filteredDisasterData);
   }, [search, disasterData])
 
   let [fontsLoaded] = useFonts({
@@ -96,18 +118,18 @@ export default function CategoryScreen({ route, navigation }) {
     <View style={styles.screen}>
       {isLoading && <LoadingScreen />}
       {!isLoading && 
-      <View>
-        <SearchForm getSearch={setSearch} />
-        <FlatList 
-          data={filteredData}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <TouchableOpacity style={styles.box} onPress={() => pressHandler(item)}>
-              <Text style={styles.text}>{item.title}</Text>
-            </TouchableOpacity>
-          )}
-        />
-      </View>
+        <View>
+          <SearchForm getSearch={setSearch} />
+          <FlatList 
+            data={filteredData}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <TouchableOpacity style={styles.box} onPress={() => pressHandler(item)}>
+                <Text style={styles.text}>{item.title}</Text>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
       }
     </View>
   );
@@ -122,10 +144,10 @@ const styles = StyleSheet.create({
     height: 30
   },
   text: {
-    fontSize: 20,
     color: "#e7e5d7",
-    textAlign: "center",
     flexShrink: 1,
     fontFamily: "Oswald_400Regular", 
+    fontSize: 20,
+    textAlign: "center",
   },
 });

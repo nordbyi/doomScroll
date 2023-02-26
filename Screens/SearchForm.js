@@ -25,10 +25,10 @@ export default function SearchForm({getSearch}) {
 
 const styles = StyleSheet.create({
   search: {
-    height: 50,
     backgroundColor: "#1e2f42",
     color: "#e7e5d7",
-    textAlign: "center",
-    fontSize: 20
+    height: 50,
+    fontSize: 20,
+    textAlign: "center"
   }
 });
