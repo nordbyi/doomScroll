@@ -9,7 +9,7 @@ Doom Scroll is an app that allows users to keep up with natural disasters happen
   - [Abstract](#abstract)
   - [Learning Goals](#learning-goals)
   - [Preview](#preview)
-  - [WinsAndChallenges](#wins-and-challenges)
+  - [WinsAndChallenges](#winsandchallenges)
   - [Authors](#Authors)
 
 ## Setup
