@@ -24,11 +24,11 @@ export const fetchDisasterData = async (endpoint) => {
 export const fetchAsteroidData = async () => {
   return await fetch(
     `https://api.nasa.gov/neo/rest/v1/neo/3542519?api_key=${ASTEROID_API_KEY}`
-  )
-}
+  );
+};
 
 export const fetchStarPhoto = async () => {
   return await fetch(
     `https://api.nasa.gov/planetary/apod?api_key=${ASTEROID_API_KEY}`
-  )
-}
+  );
+};
