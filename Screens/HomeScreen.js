@@ -60,24 +60,23 @@ export default function HomeScreen({navigation}) {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 30,
     color: "#e7e5d7",
-    textAlign: "center",
-    padding: 10,
     flexShrink: 1,
-    marginLeft: 15,
     fontFamily: "Oswald_400Regular", 
+    fontSize: 30,
+    marginLeft: 15,
+    padding: 10,
+    textAlign: "center"
   },
   box: {
-    // marginVertical: 15,
+    alignItems: "center",
     backgroundColor: "#1e2f42",
     borderRadius: 15,
     flex: 1,
     flexDirection: "row",
     height: 150,
-    alignItems: "center",
-    paddingLeft: 20,
-    marginBottom: 20
+    marginBottom: 20,
+    paddingLeft: 20
   },
   screen: {
     backgroundColor: "#020d19",
