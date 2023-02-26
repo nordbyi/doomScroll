@@ -13,7 +13,7 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home" screenOptions={{headerStyle: {backgroundColor: "#020d19"}, headerTitleStyle: {color: "#e7e5d7", fontSize: 20}, headerBackTitle: "Back"}}>
-          <Stack.Screen name="DoomScroll" component={HomeScreen} screenOptions={{headerBackTitle: "Back"}} />
+          <Stack.Screen name="Doom Scroll" component={HomeScreen} screenOptions={{headerBackTitle: "Back"}} />
           <Stack.Screen name="Doom List" component={CategoryScreen} screenOptions={{headerBackTitle: "Back"}}/>
           <Stack.Screen name="Doom Details" component={DisasterDetailsScreen} screenOptions={{headerBackTitle: "Back"}} />
         </Stack.Navigator>
