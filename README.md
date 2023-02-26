@@ -9,7 +9,7 @@ Doom Scroll is an app that allows users to keep up with natural disasters happen
   - [Abstract](#abstract)
   - [Learning Goals](#learning-goals)
   - [Preview](#preview)
-  - [Wins + Challenges](#wins-and-challenges)
+  - [WinsAndChallenges](#wins-and-challenges)
   - [Authors](#Authors)
 
 ## Setup
@@ -66,7 +66,7 @@ This project is designed to allow users to learn more about the latest natural d
 ![asteroidPage](https://user-images.githubusercontent.com/108428451/221428163-a672cde6-b223-41fe-926b-900b485efb98.gif)
 
 
-## Wins & Challenges
+## WinsAndChallenges
 
 - Successfully created our first app using React Native
 - Successfully implemented React Native Navigation
