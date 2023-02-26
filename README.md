@@ -23,7 +23,6 @@ Doom Scroll is an app that allows users to keep up with natural disasters happen
 - Pick the simulator model of your choice in the xcode preferences, ie: iPhone 14
 - The simulator will reload when you make changes
 - Additionally you may want to install a React Native debugger
-- You may also see any console logs in your terminal
 
 ## Technologies
   - Javascript
@@ -40,11 +39,11 @@ Doom Scroll is an app that allows users to keep up with natural disasters happen
   - Node.js 
   
 ## Project Spec
-[click here](https://frontend.turing.edu/projects/module-3/stretch.html)
+[Click here](https://frontend.turing.edu/projects/module-3/stretch.html)
 
 ## Abstract 
 
-This project is designed to allow users to learn more about the latest natural disasters happening all over the globe. As the user opens the app, a splash screen displays with the app logo and a spinning asteroid. The main screen includes all of the disaster categories, including earthquakes, volcanoes, wildfires, severe storms, and asteroids. A user can click on each category and a new screen view will open with a list of all of the disaster events in that category. A user can also search for a particular disaster in that list. Once a user clicks on an event, they will be taken to a new details screen. The details view includes a map and more information, which is different depending on the type of disaster. The asteroid details view also include Nasa's astronomy photo of the day. The user can click a back button on any of the screen views to navigate back to the main screen. If there is an lag from the server, the splash screen will appear between page loads. 
+This project is designed to allow users to learn more about the latest natural disasters happening all over the globe. As the user opens the app, a splash screen displays with the app logo. There is then a loading screen featuring the app logo and a spinning asteroid. The main screen includes all of the disaster categories, including earthquakes, volcanoes, wildfires, severe storms, and asteroids. A user can click on each category and a new screen view will open with a list of all of the disaster events in that category. A user can also search for a particular disaster in that list. Once a user clicks on an event, they will be taken to a new details screen. The details view includes a map and more information, which is different depending on the type of disaster. The asteroid details view also include Nasa's astronomy photo of the day. The user can click a back button on any of the screen views to navigate back to the main screen. If there is an lag from the server, the loading screen will appear between page loads. 
 
 ## Learning Goals
 
@@ -71,11 +70,11 @@ This project is designed to allow users to learn more about the latest natural d
 - Successfully created our first app using React Native
 - Successfully implemented React Native Navigation
 - Successfully learned how to use Expo Go environment and Xcode simulator
-- Successfully implemented CSS animation splash screen
-- Successfully implemented loading screen
+- Successfully implemented splash screen
+- Successfully implemented CSS animation loading screen
 - Successfully implemented user search filter
-- Succesfully brought in data from multiple Apis
-- Successfully implemented google maps
+- Succesfully brought in data from multiple APIs
+- Successfully implemented Google Maps API
 
 - Using expo and Xcode was a learning curve
 - Trying to impliment cypress testing proved to be extremely challenging and was ultimately scrapped. Would impliment Jest if the project allowed for more time.
