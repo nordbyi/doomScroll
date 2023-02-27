@@ -18,7 +18,8 @@ export default function HomeScreen({navigation}) {
     { id: 2, type: "Volcanoes", endpoint: "volcanoes"},
     { id: 3, type: "Wildfires", endpoint: "wildfires"},
     { id: 4, type: "Severe Storms", endpoint: "severeStorms"},
-    { id: 5, type: "Asteroids", endpoint: "asteroids"}
+    { id: 5, type: "Asteroids", endpoint: "asteroids"},
+    {id: 6, type: "About Us", endpoint: null}
   ];
   
   const [images, setImages] = useState([
@@ -26,6 +27,7 @@ export default function HomeScreen({navigation}) {
     require("../assets/volcano1.png"),
     require("../assets/wildfire1.png"),
     require("../assets/storm.png"),
+    require("../assets/asteroid.png"),
     require("../assets/asteroid.png")
   ]);
 
@@ -38,7 +40,11 @@ export default function HomeScreen({navigation}) {
   }
 
   const pressHandler = (endpoint) => {
-    navigation.navigate("Doom List", endpoint)
+    if (endpoint) {
+      navigation.navigate("Doom List", endpoint);
+    } else {
+      navigation.navigate("About Us");
+    }
   };
 
   return (
