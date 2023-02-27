@@ -16,7 +16,7 @@ Doom Scroll is an app that allows users to keep up with natural disasters happen
 
 - Clone down this repo [here](https://github.com/jheidepriem/doomScroll)
 - Open in text editor
-- On the command line, type: $ npm intall
+- On the command line, type: $ npm install
 - On the command line, type: $ npx expo start
 - Go to the app store and install Xcode
 - Once you've installed, you should be able to type i and open the ios simulator
