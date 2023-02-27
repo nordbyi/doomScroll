@@ -28,7 +28,7 @@ export default function HomeScreen({navigation}) {
     require("../assets/wildfire1.png"),
     require("../assets/storm.png"),
     require("../assets/asteroid.png"),
-    require("../assets/asteroid.png")
+    require("../assets/team_360.png")
   ]);
 
   let [fontsLoaded] = useFonts({
