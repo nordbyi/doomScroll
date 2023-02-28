@@ -1,8 +1,11 @@
-# Doom Scroll
+# Doom Scroll 
 
 Doom Scroll is an app that allows users to keep up with natural disasters happening all over the world, along with asteroids and their approach date. 
 
+Open the app here ----> <img width="257" alt="doomQr" src="https://user-images.githubusercontent.com/108428451/221732850-387b16a0-39a6-4c68-8fb3-908f98aa90ca.png">
+
 ## Table of Contents
+
   - [Setup](#setup)
   - [Technologies](#technologies)
   - [Project Spec](#project-spec)
@@ -40,6 +43,7 @@ Doom Scroll is an app that allows users to keep up with natural disasters happen
   
 ## Project Spec
 [Click here](https://frontend.turing.edu/projects/module-3/stretch.html)
+
 
 ## Abstract 
 
