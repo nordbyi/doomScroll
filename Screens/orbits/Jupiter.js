@@ -40,10 +40,10 @@ const styles = StyleSheet.create({
   },
   jupiter: {
     position: "absolute",
-    top: 250,
+    top: 248,
     backgroundColor: "#e7e5d7",
-    width: 30,
-    height: 30,
-    borderRadius: 15,
+    width: 34,
+    height: 34,
+    borderRadius: 17,
   },
 });
