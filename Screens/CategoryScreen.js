@@ -17,7 +17,7 @@ export default function CategoryScreen({ route, navigation }) {
   const images = {
     "earthquakes": require("../assets/earthquake_a.png"),
     "volcanoes": require("../assets/volcano_a.jpg"),
-    "wildfires": require("../assets/wildfire_b.png"),
+    "wildfires": require("../assets/wildfires_b.png"),
     "severeStorms": require("../assets/hurricane_a.jpg"),
     "asteroids": require("../assets/asteroid_b.png")
   }
