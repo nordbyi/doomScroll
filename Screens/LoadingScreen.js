@@ -39,6 +39,12 @@ const LoadingScreen = () => {
         source={require("../assets/splash.png")}
       ></Image>
     </View>
+    <View> 
+      <Image
+        style={styles.logo}
+        source={require("../assets/logo.png")}
+      ></Image>
+    </View>
   </View>
   );
 };
