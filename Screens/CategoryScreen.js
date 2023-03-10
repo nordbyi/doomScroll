@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from "react-native";
 import React, { startTransition, useEffect, useState } from "react";
 import { fetchEarthquakeData, fetchDisasterData, fetchAsteroidData } from "../ApiCalls/apiCalls";
 import SearchForm from "./SearchForm";
@@ -14,6 +14,15 @@ export default function CategoryScreen({ route, navigation }) {
   const [search, setSearch] = useState('');
   const [filteredData, setFilteredData] = useState([]);
 
+  const images = {
+    "earthquakes": require("../assets/earthquake_a.png"),
+    "volcanoes": require("../assets/volcano_a.jpg"),
+    "wildfires": require("../assets/wildfires_b.png"),
+    "severeStorms": require("../assets/hurricane_a.jpg"),
+    "asteroids": require("../assets/asteroid_b.png")
+  }
+
+  const imageToShow = images[route.params]
 
   useEffect(() => {
     setIsLoading(true);
@@ -120,6 +129,7 @@ export default function CategoryScreen({ route, navigation }) {
       {!isLoading && 
         <View>
           <SearchForm getSearch={setSearch} />
+          <Image style={styles.image} source={imageToShow}></Image>
           <FlatList 
             data={filteredData}
             keyExtractor={(item) => item.id}
@@ -141,7 +151,15 @@ const styles = StyleSheet.create({
     height: "100%"
   },
   box: {
-    height: 30
+    alignItems: "center",
+    backgroundColor: "#1e2f42",
+    borderRadius: 15,
+    flex: 1,
+    flexDirection: "row",
+    height: 85,
+    marginTop: 20,
+    paddingLeft: 15,
+    justifyContent: "center"
   },
   text: {
     color: "#e7e5d7",
@@ -150,4 +168,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
   },
+  image: {
+    height: 300,
+    width: 395
+  }
 });
