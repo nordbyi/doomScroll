@@ -18,7 +18,7 @@ export default function CategoryScreen({ route, navigation }) {
     "earthquakes": require("../assets/earthquake_a.png"),
     "volcanoes": require("../assets/volcano_a.jpg"),
     "wildfires": require("../assets/wildfires_b.png"),
-    "severeStorms": require("../assets/hurricane_a.jpg"),
+    "severeStorms": require("../assets/storm2.png"),
     "asteroids": require("../assets/asteroid_b.png")
   }
 
@@ -95,7 +95,7 @@ export default function CategoryScreen({ route, navigation }) {
           id: data.id,
           title: data.title,
           coordinates: data.geometry,
-          source: data.sources.url
+          source: data.sources[0].url
           }
         });
         setDisasterData(mappedData);

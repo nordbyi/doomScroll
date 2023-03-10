@@ -39,7 +39,7 @@ export default function DisasterDetailsScreen({ route }) {
     data = 
       <View>
         <Text style={styles.text}>Doom Coordinates: {route.params.coordinates[0].coordinates[0]}, {route.params.coordinates[0].coordinates[1]}</Text>
-        <Text style={styles.text} onPress={() => Linking.openURL(route.params.source)}>{route.params.source && `Read here for more doom: ${route.params.source}`}</Text>
+        <Text style={styles.text} onPress={() => Linking.openURL(route.params.source)}>{route.params.source && route.params.source}</Text>
       </View>
   }
 
