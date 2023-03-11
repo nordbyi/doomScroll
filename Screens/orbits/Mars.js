@@ -64,7 +64,8 @@ const styles = StyleSheet.create({
   },
   mars: {
     position: "absolute",
-    top: 150,
+    top: -9,
+    left: 215,
     backgroundColor: "#e7e5d7",
     width: 18,
     height: 18,

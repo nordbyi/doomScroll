@@ -43,14 +43,6 @@ const Venus = () => {
       </Animated.View>
     </Pressable>
   );
-
-  return (
-      <Animated.View style={[styles.orbitVenus, {
-            transform: [{ rotate: spin }],
-          },]}>
-        <View style={styles.venus} />
-      </Animated.View>
-  );
 };
 
 export default Venus;
@@ -72,17 +64,11 @@ const styles = StyleSheet.create({
   },
   venus: {
     position: "absolute",
-    top: 40,
+    top: -8,
+    left: 80,
     backgroundColor: "#e7e5d7",
     width: 16,
     height: 16,
     borderRadius: 8,
   },
 });
-// position: "absolute",
-// top: -6,
-// left: 42,
-// backgroundColor: "#e7e5d7",
-// width: 12,
-// height: 12,
-// borderRadius: 6,

@@ -79,10 +79,19 @@ const styles = StyleSheet.create({
   },
   earth: {
     position: "absolute",
-    top: 82,
+    top: -11,
+    left: 138,
     backgroundColor: "#e7e5d7",
     width: 22,
     height: 22,
     borderRadius: 11,
   },
 });
+
+// position: "absolute",
+// top: -6,
+// left: 42,
+// backgroundColor: "#e7e5d7",
+// width: 12,
+// height: 12,
+// borderRadius: 6,

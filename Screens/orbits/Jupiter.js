@@ -72,7 +72,8 @@ const styles = StyleSheet.create({
   },
   jupiter: {
     position: "absolute",
-    top: 248,
+    top: -17,
+    left: 360,
     backgroundColor: "#e7e5d7",
     width: 34,
     height: 34,
