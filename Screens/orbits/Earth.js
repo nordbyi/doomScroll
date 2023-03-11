@@ -6,45 +6,47 @@ import {
   Easing,
   Pressable,
 } from "react-native";
+import { orbit, spin, spinToTop } from "./helperFunctions";
 
 const Earth = () => {
   const [color, setColor] = useState("#e7e5d7")
 
   useEffect(() => {
-    orbit.start()
+    earthOrbit.start()
   }, [])
 
   const spinValue = useRef(new Animated.Value(0)).current;
 
-  const spinToTop = Animated.timing(spinValue, {
-    toValue: 0,
-    duration: 500,
-    easing: Easing.linear,
-    useNativeDriver: true,
-  });
+  const earthOrbit = orbit(spinValue, 10000)
 
-  const orbit = Animated.loop(
-    Animated.timing(spinValue, {
-      toValue: 1,
-      duration: 10000,
-      easing: Easing.linear, // Easing is an additional import from react-native
-      useNativeDriver: true, // To make use of native driver for performance
-    })
-  );
+  const earthSpinToTop = spinToTop(spinValue)
 
-  const spin = spinValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: ["0deg", "360deg"],
-  });
+  const earthSpin = spin(spinValue)
+
+  // const spinToTop = spinToTop
+
+  // const orbit = Animated.loop(
+  //   Animated.timing(spinValue, {
+  //     toValue: 1,
+  //     duration: 10000,
+  //     easing: Easing.linear, // Easing is an additional import from react-native
+  //     useNativeDriver: true, // To make use of native driver for performance
+  //   })
+  // );
+
+  // const spin = spinValue.interpolate({
+  //   inputRange: [0, 1],
+  //   outputRange: ["0deg", "360deg"],
+  // });
 
   return (
     <Pressable style={styles.pressable} onPressIn={() => {
       setColor('red')
-      orbit.stop()
-      spinToTop.start()}
+      earthOrbit.stop()
+      earthSpinToTop.start()}
     } onPressOut ={() => {
       setColor('#e7e5d7')
-      orbit.start()
+      earthOrbit.start()
     }
     }>
       <Animated.View
@@ -53,7 +55,7 @@ const Earth = () => {
           {borderColor: color},
           styles.orbitEarth,
           {
-            transform: [{ rotate: spin }],
+            transform: [{ rotate: earthSpin }],
           },
         ]}
       >
