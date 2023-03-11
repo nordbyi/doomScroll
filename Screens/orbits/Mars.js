@@ -1,40 +1,64 @@
-import React from "react";
-import { Animated, StyleSheet, View, Image, Easing } from "react-native";
+import React, {useState, useEffect, useRef} from "react";
+import { Animated, StyleSheet, View, Pressable } from "react-native";
+import { orbit, spin, spinToTop } from "./helperFunctions";
 
 const Mars = () => {
-  const spinValue = new Animated.Value(0);
+  const [color, setColor] = useState("#e7e5d7");
 
-  Animated.loop(
-    Animated.timing(spinValue, {
-      toValue: 1,
-      duration: 15000,
-      easing: Easing.linear, // Easing is an additional import from react-native
-      useNativeDriver: true, // To make use of native driver for performance
-    })
-  ).start();
+  useEffect(() => {
+    marsOrbit.start();
+  }, []);
 
-  const spin = spinValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: ["0deg", "360deg"],
-  });
+  const spinValue = useRef(new Animated.Value(0)).current;
+
+  const marsOrbit = orbit(spinValue, 15000);
+
+  const marsSpinToTop = spinToTop(spinValue);
+
+  const marsSpin = spin(spinValue);
+
   return (
-      <Animated.View style={[styles.orbitMars, {
-            transform: [{ rotate: spin }],
-          },]}>
+    <Pressable
+      style={styles.pressable}
+      onPressIn={() => {
+        setColor("red");
+        marsOrbit.stop();
+        marsSpinToTop.start();
+      }}
+      onPressOut={() => {
+        setColor("#e7e5d7");
+        marsOrbit.start();
+      }}
+    >
+      <Animated.View
+        style={[
+          { borderColor: color },
+          styles.orbitMars,
+          {
+            transform: [{ rotate: marsSpin }],
+          },
+        ]}
+      >
         <View style={styles.mars} />
       </Animated.View>
+    </Pressable>
   );
 };
 
 export default Mars;
 
 const styles = StyleSheet.create({
+  pressable: {
+    position: "absolute",
+    width: 450,
+    height: 450,
+  },
   orbitMars: {
     position: "absolute",
     width: 450,
     height: 450,
     // borderStyle: "dashed",
-    borderColor: "#e7e5d7",
+    // borderColor: "#e7e5d7",
     borderWidth: 2,
     borderRadius: 225,
   },

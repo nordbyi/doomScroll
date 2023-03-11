@@ -1,22 +1,49 @@
-import React from "react";
-import { Animated, StyleSheet, View, Image, Easing } from "react-native";
+import React, {useState, useEffect, useRef} from "react";
+import { Animated, StyleSheet, View, Pressable } from "react-native";
+import { orbit, spin, spinToTop } from "./helperFunctions";
 
 const Venus = () => {
-  const spinValue = new Animated.Value(0);
+  const spinValue = useRef(new Animated.Value(0)).current;
 
-  Animated.loop(
-    Animated.timing(spinValue, {
-      toValue: 1,
-      duration: 7000,
-      easing: Easing.linear, // Easing is an additional import from react-native
-      useNativeDriver: true, // To make use of native driver for performance
-    })
-  ).start();
+  const [color, setColor] = useState("#e7e5d7");
 
-  const spin = spinValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: ["0deg", "360deg"],
-  });
+  useEffect(() => {
+    venusOrbit.start();
+  }, []);
+
+  const venusOrbit = orbit(spinValue, 5000);
+
+  const venusSpinToTop = spinToTop(spinValue);
+
+  const venusSpin = spin(spinValue);
+
+  return (
+    <Pressable
+      style={styles.pressable}
+      onPressIn={() => {
+        setColor("red");
+        venusOrbit.stop();
+        venusSpinToTop.start();
+      }}
+      onPressOut={() => {
+        setColor("#e7e5d7");
+        venusOrbit.start();
+      }}
+    >
+      <Animated.View
+        style={[
+          { borderColor: color },
+          styles.orbitVenus,
+          {
+            transform: [{ rotate: venusSpin }],
+          },
+        ]}
+      >
+        <View style={styles.venus} />
+      </Animated.View>
+    </Pressable>
+  );
+
   return (
       <Animated.View style={[styles.orbitVenus, {
             transform: [{ rotate: spin }],
@@ -29,12 +56,17 @@ const Venus = () => {
 export default Venus;
 
 const styles = StyleSheet.create({
+  pressable: {
+    position: "absolute",
+    width: 180,
+    height: 180,
+  },
   orbitVenus: {
     position: "absolute",
     width: 180,
     height: 180,
     // borderStyle: "dashed",
-    borderColor: "#e7e5d7",
+    // borderColor: "#e7e5d7",
     borderWidth: 2,
     borderRadius: 90,
   },
@@ -47,3 +79,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
 });
+// position: "absolute",
+// top: -6,
+// left: 42,
+// backgroundColor: "#e7e5d7",
+// width: 12,
+// height: 12,
+// borderRadius: 6,

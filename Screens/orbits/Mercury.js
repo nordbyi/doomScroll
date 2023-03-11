@@ -1,42 +1,62 @@
-import React from "react";
-import { Animated, StyleSheet, View, Image, Easing } from "react-native";
+import React, {useState, useEffect, useRef} from "react";
+import { Animated, StyleSheet, View, Pressable} from "react-native";
 import { orbit, spin, spinToTop } from "./helperFunctions";
 
-
 const Mercury = () => {
-  const spinValue = new Animated.Value(0);
+  const [color, setColor] = useState("#e7e5d7");
 
-  // Animated.loop(
-  //   Animated.timing(spinValue, {
-  //     toValue: 1,
-  //     duration: 5000,
-  //     easing: Easing.linear, // Easing is an additional import from react-native
-  //     useNativeDriver: true, // To make use of native driver for performance
-  //   })
-  // ).start();
+  useEffect(() => {
+    mercuryOrbit.start();
+  }, []);
 
-  const spin = spinValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: ["0deg", "360deg"],
-  });
+  const spinValue = useRef(new Animated.Value(0)).current;
+
+  const mercuryOrbit = orbit(spinValue, 5000);
+
+  const mercurySpinToTop = spinToTop(spinValue);
+
+  const mercurySpin = spin(spinValue);
+
   return (
-      <Animated.View style={[styles.orbitMercury, {
-            transform: [{ rotate: spin }],
-          },]}>
+    <Pressable
+      style={styles.pressable}
+      onPressIn={() => {
+        setColor("red");
+        mercuryOrbit.stop();
+        mercurySpinToTop.start();
+      }}
+      onPressOut={() => {
+        setColor("#e7e5d7");
+        mercuryOrbit.start();
+      }}
+    >
+      <Animated.View
+        style={[
+          { borderColor: color },
+          styles.orbitMercury,
+          {
+            transform: [{ rotate: mercurySpin }],
+          },
+        ]}
+      >
         <View style={styles.mercury} />
       </Animated.View>
+    </Pressable>
   );
 };
 
 export default Mercury;
 
 const styles = StyleSheet.create({
+  pressable: {
+    position: "absolute",
+    width: 100,
+    height: 100,
+  },
   orbitMercury: {
     position: "absolute",
     width: 100,
     height: 100,
-    // borderStyle: "dashed",
-    borderColor: "#e7e5d7",
     borderWidth: 2,
     borderRadius: 50,
   },
