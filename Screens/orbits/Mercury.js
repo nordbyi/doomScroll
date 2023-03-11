@@ -1,17 +1,19 @@
 import React from "react";
 import { Animated, StyleSheet, View, Image, Easing } from "react-native";
+import { orbit, spin, spinToTop } from "./helperFunctions";
+
 
 const Mercury = () => {
   const spinValue = new Animated.Value(0);
 
-  Animated.loop(
-    Animated.timing(spinValue, {
-      toValue: 1,
-      duration: 5000,
-      easing: Easing.linear, // Easing is an additional import from react-native
-      useNativeDriver: true, // To make use of native driver for performance
-    })
-  ).start();
+  // Animated.loop(
+  //   Animated.timing(spinValue, {
+  //     toValue: 1,
+  //     duration: 5000,
+  //     easing: Easing.linear, // Easing is an additional import from react-native
+  //     useNativeDriver: true, // To make use of native driver for performance
+  //   })
+  // ).start();
 
   const spin = spinValue.interpolate({
     inputRange: [0, 1],
@@ -40,7 +42,8 @@ const styles = StyleSheet.create({
   },
   mercury: {
     position: "absolute",
-    top: 17,
+    top: -6,
+    left: 42,
     backgroundColor: "#e7e5d7",
     width: 12,
     height: 12,
