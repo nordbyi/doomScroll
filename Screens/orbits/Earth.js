@@ -1,27 +1,21 @@
-import React, {useState, useRef, useEffect} from "react";
-import {
-  Animated,
-  StyleSheet,
-  View,
-  Easing,
-  Pressable,
-} from "react-native";
+import React, { useState, useRef, useEffect } from "react";
+import { Animated, StyleSheet, View, Pressable } from "react-native";
 import { orbit, spin, spinToTop } from "./helperFunctions";
 
 const Earth = () => {
-  const [color, setColor] = useState("#e7e5d7")
+  const [color, setColor] = useState("#e7e5d7");
 
   useEffect(() => {
-    earthOrbit.start()
-  }, [])
+    earthOrbit.start();
+  }, []);
 
   const spinValue = useRef(new Animated.Value(0)).current;
 
-  const earthOrbit = orbit(spinValue, 10000)
+  const earthOrbit = orbit(spinValue, 10000);
 
-  const earthSpinToTop = spinToTop(spinValue)
+  const earthSpinToTop = spinToTop(spinValue);
 
-  const earthSpin = spin(spinValue)
+  const earthSpin = spin(spinValue);
 
   // const spinToTop = spinToTop
 
@@ -40,19 +34,21 @@ const Earth = () => {
   // });
 
   return (
-    <Pressable style={styles.pressable} onPressIn={() => {
-      setColor('red')
-      earthOrbit.stop()
-      earthSpinToTop.start()}
-    } onPressOut ={() => {
-      setColor('#e7e5d7')
-      earthOrbit.start()
-    }
-    }>
+    <Pressable
+      style={styles.pressable}
+      onPressIn={() => {
+        setColor("red");
+        earthOrbit.stop();
+        earthSpinToTop.start();
+      }}
+      onPressOut={() => {
+        setColor("#e7e5d7");
+        earthOrbit.start();
+      }}
+    >
       <Animated.View
-        
         style={[
-          {borderColor: color},
+          { borderColor: color },
           styles.orbitEarth,
           {
             transform: [{ rotate: earthSpin }],
@@ -69,6 +65,8 @@ export default Earth;
 
 const styles = StyleSheet.create({
   pressable: {
+    position: "absolute",
+
     width: 300,
     height: 300,
   },
