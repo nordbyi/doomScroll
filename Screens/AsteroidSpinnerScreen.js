@@ -27,20 +27,20 @@ const AsteroidSpinnerScreen = () => {
     <View style={styles.screen}>
       <Sun />
       {/* <Animated.View style={[styles.orbitMercury, {
-            transform: [{ rotate: spin }],
-          },]}>
-        <View style={styles.mercury} />
-      </Animated.View> */}
+        transform: [{ rotate: spin }],
+      },]}>
+      <View style={styles.mercury} />
+    </Animated.View> */}
       <Mercury />
       {/* <Animated.View style={[styles.orbitVenus, {
-            transform: [{ rotate: spin }],
-          }]}>
-        <View style={styles.venus} />
-      </Animated.View> */}
+        transform: [{ rotate: spin }],
+      }]}>
+      <View style={styles.venus} />
+    </Animated.View> */}
       <Venus />
-      <Earth />
       <Mars />
       <Jupiter />
+      <Earth />
     </View>
   );
 };
@@ -49,7 +49,7 @@ export default AsteroidSpinnerScreen;
 
 const styles = StyleSheet.create({
   screen: {
-    position: 'relative',
+    position: "relative",
     backgroundColor: "#020d19",
     height: "100%",
     justifyContent: "center",
