@@ -31,16 +31,16 @@ const AsteroidSpinnerScreen = () => {
       },]}>
       <View style={styles.mercury} />
     </Animated.View> */}
-      <Mercury />
       {/* <Animated.View style={[styles.orbitVenus, {
         transform: [{ rotate: spin }],
       }]}>
       <View style={styles.venus} />
     </Animated.View> */}
-      <Venus />
-      <Mars />
       <Jupiter />
+      <Mars />
       <Earth />
+      <Venus />
+    <Mercury /> 
     </View>
   );
 };
