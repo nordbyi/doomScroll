@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Animated, StyleSheet, View, Pressable } from "react-native";
 import { orbit, spin, spinToTop } from "./helperFunctions";
+import Asteroid from "./Asteroid";
 
 const Earth = () => {
   const [color, setColor] = useState("#e7e5d7");
 
-  useEffect(() => {
-    earthOrbit.start();
-  }, []);
+  // useEffect(() => {
+  //   earthOrbit.start();
+  // }, []);
 
   const spinValue = useRef(new Animated.Value(0)).current;
 
@@ -16,6 +17,10 @@ const Earth = () => {
   const earthSpinToTop = spinToTop(spinValue);
 
   const earthSpin = spin(spinValue);
+
+  const expandPlanet = () => {
+    
+  }
 
   // const spinToTop = spinToTop
 
@@ -55,7 +60,9 @@ const Earth = () => {
           },
         ]}
       >
-        <View style={styles.earth} />
+        <View style={styles.earth}>
+          <Asteroid radius={22}/>
+        </View>
       </Animated.View>
     </Pressable>
   );
@@ -69,6 +76,7 @@ const styles = StyleSheet.create({
 
     width: 300,
     height: 300,
+    borderRadius: 150,
   },
   orbitEarth: {
     position: "absolute",
@@ -85,6 +93,8 @@ const styles = StyleSheet.create({
     width: 22,
     height: 22,
     borderRadius: 11,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 });
 
