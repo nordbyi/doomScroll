@@ -11,7 +11,7 @@ const Asteroid = ({radius}) => {
 
   const spinValue = useRef(new Animated.Value(0)).current;
 
-  const asteroidOrbit = orbit(spinValue, 1000);
+  const asteroidOrbit = orbit(spinValue, 1500);
 
   // const asteroidSpinToTop = spinToTop(spinValue);
 
@@ -20,7 +20,7 @@ const Asteroid = ({radius}) => {
   return (
       <Animated.View
         style={[
-          { borderColor: color }, {width: radius + 10}, {height: radius + 10},
+          { borderColor: color }, {width: radius + 25}, {height: radius + 25},
           styles.orbitAsteroid,
           {
             transform: [{ rotate: asteroidSpin }],
@@ -37,18 +37,18 @@ export default Asteroid;
 const styles = StyleSheet.create({
   orbitAsteroid: {
     position: "absolute",
-    width: 300,
-    height: 300,
+    // width: 300,
+    // height: 300,
     borderWidth: 2,
     borderRadius: 150,
   },
   asteroid: {
     position: "absolute",
-    top: -11,
-    left: 138,
-    backgroundColor: "#e7e5d7",
-    width: 22,
-    height: 22,
+    // top: -11,
+    // left: 138,
+    backgroundColor: "red",
+    width: 10,
+    height: 10,
     borderRadius: 11,
   },
 });
