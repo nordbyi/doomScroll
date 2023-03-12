@@ -11,7 +11,7 @@ const Mercury = () => {
 
   const spinValue = useRef(new Animated.Value(0)).current;
 
-  const mercuryOrbit = orbit(spinValue, 5000);
+  const mercuryOrbit = orbit(spinValue, 4000);
 
   const mercurySpinToTop = spinToTop(spinValue);
 
