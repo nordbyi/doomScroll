@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 750,
     height: 750,
+    
   },
   orbitJupiter: {
     position: "absolute",

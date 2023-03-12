@@ -18,10 +18,6 @@ const Earth = () => {
 
   const earthSpin = spin(spinValue);
 
-  const expandPlanet = () => {
-    
-  }
-
   // const spinToTop = spinToTop
 
   // const orbit = Animated.loop(
