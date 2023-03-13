@@ -6,9 +6,9 @@ import Asteroid from "./Asteroid";
 const Earth = () => {
   const [color, setColor] = useState("#e7e5d7");
 
-  // useEffect(() => {
-  //   earthOrbit.start();
-  // }, []);
+  useEffect(() => {
+    earthOrbit.start();
+  }, []);
 
   const spinValue = useRef(new Animated.Value(0)).current;
 
@@ -69,7 +69,6 @@ export default Earth;
 const styles = StyleSheet.create({
   pressable: {
     position: "absolute",
-
     width: 300,
     height: 300,
     borderRadius: 150,
