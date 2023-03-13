@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import { Animated, StyleSheet, View, Easing } from "react-native";
 import Sun from "./orbits/Sun";
 import Mercury from "./orbits/Mercury";
@@ -8,20 +8,10 @@ import Mars from "./orbits/Mars";
 import Jupiter from "./orbits/Jupiter";
 
 const AsteroidSpinnerScreen = () => {
-  
+
   return (
     <View style={styles.screen}>
       <Sun />
-      {/* <Animated.View style={[styles.orbitMercury, {
-        transform: [{ rotate: spin }],
-      },]}>
-      <View style={styles.mercury} />
-    </Animated.View> */}
-      {/* <Animated.View style={[styles.orbitVenus, {
-        transform: [{ rotate: spin }],
-      }]}>
-      <View style={styles.venus} />
-    </Animated.View> */}
       <Jupiter />
       <Mars />
       <Earth />
@@ -41,5 +31,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
 });
