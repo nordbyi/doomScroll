@@ -56,6 +56,8 @@ This project is designed to allow users to learn more about the latest natural d
 - Be able to answer: What problems are you solving? What features must the solution include to solve this problem?
 
 ## Preview 
+<img width="1309" alt="Screen Shot 2023-02-17 at 5 05 06 PM" src="https://user-images.githubusercontent.com/108428451/225041313-8bdf6544-9c74-42c7-90fe-2dbfee58b764.png">
+
 ![loadingPage](https://user-images.githubusercontent.com/108428451/221428141-44f44fd0-48c7-471d-8cea-cc1d141730d3.gif)
 
 ![detailsPage](https://user-images.githubusercontent.com/108428451/221428145-c9d995a0-2765-4746-aa07-119a5a082573.gif)
