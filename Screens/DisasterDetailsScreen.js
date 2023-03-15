@@ -65,8 +65,10 @@ export default function DisasterDetailsScreen({ route }) {
           coordinate={{latitude: route.params.coordinates[0].coordinates[1], 
           longitude: route.params.coordinates[0].coordinates[0],}}/>
         </MapView>}
-      <Text style={styles.text}>{route.params.title}</Text>
-      {data}
+      <View style={styles.box}> 
+        <Text style={[styles.text, styles.firstText]}>{route.params.title}</Text>
+        {data}
+      </View>
     </View>
   );
 }
@@ -369,7 +371,8 @@ const styles = StyleSheet.create({
     color: "#e7e5d7",
     fontFamily: "Oswald_400Regular",
     fontSize: 20,
-    textAlign: "center"
+    textAlign: "center",
+    paddingBottom: 15
   },
   screen: {
     height: "100%",
@@ -379,6 +382,20 @@ const styles = StyleSheet.create({
     height: '50%', 
     width: '100%',
   },
+  box: {
+    backgroundColor: "#1e2f42",
+    borderRadius: 15,
+    flex: 1,
+    flexDirection: "column",
+    marginTop: 20,
+  },
+  link: {
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  firstText: {
+    marginTop: 40
+  }
 });
 
 
