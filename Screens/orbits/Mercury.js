@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Animated, StyleSheet, View, Pressable, Easing } from "react-native";
+import Asteroid from "./Asteroid";
 import { orbit, spin, spinToTop } from "./helperFunctions";
 
 const Mercury = () => {
   const [color, setColor] = useState("#e7e5d7");
   const timeoutID = useRef("");
 
-  const widthValue = useRef(new Animated.Value(18)).current;
-  const heightValue = useRef(new Animated.Value(18)).current;
+  const widthValue = useRef(new Animated.Value(12)).current;
+  const heightValue = useRef(new Animated.Value(12)).current;
   const z_Index = useRef("auto");
 
   useEffect(() => {
@@ -63,6 +64,7 @@ const Mercury = () => {
         z_Index.current = 999;
       }}
       onPressOut={() => {
+        clearTimeout(timeoutID.current)
         setColor("#e7e5d7");
         mercuryOrbit.start();
         contract.start();
@@ -85,7 +87,9 @@ const Mercury = () => {
             { width: widthValue },
             { height: heightValue },
           ]}
-        />
+        >
+          <Asteroid radius={12}/>
+        </Animated.View>
       </Animated.View>
     </Pressable>
   );
@@ -116,6 +120,8 @@ const styles = StyleSheet.create({
     width: 12,
     height: 12,
     borderRadius: 6,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 });
 

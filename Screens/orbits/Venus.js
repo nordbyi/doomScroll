@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useRef} from "react";
 import { Animated, StyleSheet, View, Pressable } from "react-native";
+import Asteroid from "./Asteroid";
 import { orbit, spin, spinToTop } from "./helperFunctions";
 
 const Venus = () => {
@@ -39,7 +40,9 @@ const Venus = () => {
           },
         ]}
       >
-        <View style={styles.venus} />
+        <View style={styles.venus} >
+          <Asteroid radius={16}/>
+        </View>
       </Animated.View>
     </Pressable>
   );
@@ -70,5 +73,7 @@ const styles = StyleSheet.create({
     width: 16,
     height: 16,
     borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 });
