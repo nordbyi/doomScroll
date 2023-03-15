@@ -32,3 +32,19 @@ export const fetchStarPhoto = async () => {
     `https://api.nasa.gov/planetary/apod?api_key=${ASTEROID_API_KEY}`
   );
 };
+
+export const fetchOneAsteroid = () => {
+  return fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=2023-08-04&end_date=2023-08-11&detailed=false&api_key=${ASTEROID_API_KEY}`);
+};
+
+const fetchAsteroidByWeek = (startDate, endDate) => {
+  return fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&detailed=false&api_key=${ASTEROID_API_KEY}`);
+};
+
+export const fetchAllAsteroidsByWeek = () => {
+  return Promise.all([
+    fetchAsteroidByWeek("2023-08-04", "2023-08-11"),
+    fetchAsteroidByWeek("2023-03-31", "2023-04-07"),
+    fetchAsteroidByWeek("2023-04-07", "2023-04-14"),
+  ])
+}
