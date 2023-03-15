@@ -4,6 +4,8 @@ import { fetchEarthquakeData, fetchDisasterData, fetchAsteroidData } from "../Ap
 import SearchForm from "./SearchForm";
 import LoadingScreen from "./LoadingScreen";
 import { useFonts, Oswald_400Regular } from "@expo-google-fonts/oswald";
+import { fetchOneAsteroid } from "../ApiCalls/apiCalls";
+import { fetchAllAsteroidsByWeek } from "../ApiCalls/apiCalls";
 
 
 export default function CategoryScreen({ route, navigation }) {
@@ -54,7 +56,8 @@ export default function CategoryScreen({ route, navigation }) {
     setIsLoading(false);
   }).catch(err => setError(err));
     } else if(route.params === 'asteroids') {
-      fetchAsteroidData()
+      fetchOneAsteroid()
+      // fetchAllAsteroidsByWeek()
       .then(res => {
         if (!res.ok) {
           throw new Error("Something went wrong")
@@ -63,20 +66,18 @@ export default function CategoryScreen({ route, navigation }) {
         }
       })
       .then(data => {  
-        const mappedAsteroidData = data.close_approach_data.reduce((acc, cur) => {
-          if (Number(cur.close_approach_date.substring(0, 4)) > 2022) {
-            const newAsteroid = {
-              id: cur.epoch_date_close_approach,
-              title: `Doom Approach Date: ${cur.close_approach_date_full}`,
-              closeApproachDate: cur.close_approach_date_full,
-              relativeVelocity: cur.relative_velocity,
-              missDistance: cur.miss_distance,
-              orbitingBody: cur.orbiting_body
-            }
-            return [...acc, newAsteroid];
+        const keys = Object.keys(data.near_earth_objects)
+        const mappedAsteroidData = keys.reduce((acc, cur) => {
+          const newAsteroid = {
+            id: data.near_earth_objects[cur][0].id,
+            title: data.near_earth_objects[cur][0].name,
+            closeApproachDate: data.near_earth_objects[cur][0].close_approach_data[0].close_approach_date,
+            missDistance: data.near_earth_objects[cur][0].close_approach_data[0].miss_distance.miles,
+            orbitingBody: data.near_earth_objects[cur][0].close_approach_data[0].orbiting_body,
+            relativeVelocity: data.near_earth_objects[cur][0].close_approach_data[0].relative_velocity.miles_per_hour
           }
-          return acc;
-        },[]);
+          return [...acc, newAsteroid];
+        }, []);
       setDisasterData(mappedAsteroidData);
       setIsLoading(false);
       }).catch(err => setError(err))
