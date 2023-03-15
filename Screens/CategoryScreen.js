@@ -20,7 +20,7 @@ export default function CategoryScreen({ route, navigation }) {
     "earthquakes": require("../assets/earthquake_a.png"),
     "volcanoes": require("../assets/volcano_a.jpg"),
     "wildfires": require("../assets/wildfires_b.png"),
-    "severeStorms": require("../assets/storm2.png"),
+    "severeStorms": require("../assets/storm_3.jpg"),
     "asteroids": require("../assets/asteroid_b.png")
   }
 
