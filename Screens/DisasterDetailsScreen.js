@@ -65,8 +65,10 @@ export default function DisasterDetailsScreen({ route }) {
           coordinate={{latitude: route.params.coordinates[0].coordinates[1], 
           longitude: route.params.coordinates[0].coordinates[0],}}/>
         </MapView>}
-      <Text style={styles.text}>{route.params.title}</Text>
-      {data}
+      <View style={styles.box}> 
+        <Text style={[styles.text, styles.firstText]}>{route.params.title}</Text>
+        {data}
+      </View>
     </View>
   );
 }
