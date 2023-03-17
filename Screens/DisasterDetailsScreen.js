@@ -31,9 +31,8 @@ export default function DisasterDetailsScreen({ route }) {
     data = 
       <View>
         <Image style={{width: 400, height: 400}} source={{uri: starData.url}}/>
-        <Text style={[styles.text, styles.firstText]}>{route.params.title}</Text>
-        <Text style={styles.text}>{route.params.missDistance && `Miss Distance in Miles: ${(+route.params.missDistance).toLocaleString()}`}</Text>
-        <Text style={styles.text}>{route.params.relativeVelocity && `Relative Velocity in MPH: ${(+route.params.relativeVelocity).toLocaleString()}`}</Text>
+        <Text style={[styles.text, styles.firstText]}>{route.params.missDistance.miles && `Miss Distance in Miles: ${(+route.params.missDistance.miles).toLocaleString()}`}</Text>
+        <Text style={styles.text}>{route.params.relativeVelocity.miles_per_hour && `Relative Velocity in MPH: ${(+route.params.relativeVelocity.miles_per_hour).toLocaleString()}`}</Text>
         <Text style={styles.text}>{route.params.orbitingBody && `Orbiting Body: ${route.params.orbitingBody}`}</Text>
       </View>
   } else {
