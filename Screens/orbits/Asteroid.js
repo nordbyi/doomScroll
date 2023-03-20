@@ -41,10 +41,11 @@ const styles = StyleSheet.create({
     // height: 300,
     borderWidth: 2,
     borderRadius: 150,
+    alignItems: "center",
   },
   asteroid: {
     position: "absolute",
-    // top: -11,
+    top: -6,
     // left: 138,
     backgroundColor: "red",
     width: 10,

@@ -12,7 +12,7 @@ const Countdown = ({yearsUntilEvent, fact}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.fact}>{fact}</Text>
-      <Text style={styles.fact}>The same DOOM will befall Earth in...</Text>
+      <Text style={styles.fact}>A similar DOOM will befall Earth in approximately...</Text>
       {yearsUntilEvent > 100 && <Text style={styles.countdown}>409,968,753,21</Text>}
       <Text style={styles.countdown}>{countdown.toLocaleString()}</Text>
     </View>
