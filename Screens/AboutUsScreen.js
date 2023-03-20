@@ -40,7 +40,7 @@ export default function AboutUsScreen() {
             GitHub
           </Text>
         </Text>
-        <Text style={styles.text}>
+        <Text style={[styles.text, styles.josephine]}>
           Josephine Heidepreim:{" "}
           <Text style={styles.link} onPress={() => Linking.openURL("https://www.linkedin.com/in/josephine-heidepriem/")}>
             LinkedIn &{" "}
@@ -75,5 +75,10 @@ const styles = StyleSheet.create({
   },
   link: {
     textDecorationLine: "underline"
+  },
+  josephine: {
+    fontSize: 25,
+    paddingLeft: 10,
+    paddingRight: 10
   }
 });

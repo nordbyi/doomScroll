@@ -1,8 +1,9 @@
-# Doom Scroll
+# Doom Scroll 
 
 Doom Scroll is an app that allows users to keep up with natural disasters happening all over the world, along with asteroids and their approach date. 
 
 ## Table of Contents
+
   - [Setup](#setup)
   - [Technologies](#technologies)
   - [Project Spec](#project-spec)
@@ -16,7 +17,7 @@ Doom Scroll is an app that allows users to keep up with natural disasters happen
 
 - Clone down this repo [here](https://github.com/jheidepriem/doomScroll)
 - Open in text editor
-- On the command line, type: $ npm intall
+- On the command line, type: $ npm install
 - On the command line, type: $ npx expo start
 - Go to the app store and install Xcode
 - Once you've installed, you should be able to type i and open the ios simulator
@@ -41,6 +42,7 @@ Doom Scroll is an app that allows users to keep up with natural disasters happen
 ## Project Spec
 [Click here](https://frontend.turing.edu/projects/module-3/stretch.html)
 
+
 ## Abstract 
 
 This project is designed to allow users to learn more about the latest natural disasters happening all over the globe. As the user opens the app, a splash screen displays with the app logo. There is then a loading screen featuring the app logo and a spinning asteroid. The main screen includes all of the disaster categories, including earthquakes, volcanoes, wildfires, severe storms, and asteroids. A user can click on each category and a new screen view will open with a list of all of the disaster events in that category. A user can also search for a particular disaster in that list. Once a user clicks on an event, they will be taken to a new details screen. The details view includes a map and more information, which is different depending on the type of disaster. The asteroid details view also include Nasa's astronomy photo of the day. The user can click a back button on any of the screen views to navigate back to the main screen. If there is an lag from the server, the loading screen will appear between page loads. 
@@ -54,6 +56,8 @@ This project is designed to allow users to learn more about the latest natural d
 - Be able to answer: What problems are you solving? What features must the solution include to solve this problem?
 
 ## Preview 
+<img width="1309" alt="Screen Shot 2023-02-17 at 5 05 06 PM" src="https://user-images.githubusercontent.com/108428451/225041313-8bdf6544-9c74-42c7-90fe-2dbfee58b764.png">
+
 ![loadingPage](https://user-images.githubusercontent.com/108428451/221428141-44f44fd0-48c7-471d-8cea-cc1d141730d3.gif)
 
 ![detailsPage](https://user-images.githubusercontent.com/108428451/221428145-c9d995a0-2765-4746-aa07-119a5a082573.gif)
