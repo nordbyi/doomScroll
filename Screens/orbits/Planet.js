@@ -4,13 +4,14 @@ import { orbit, spin, spinToTop } from "./helperFunctions";
 import Countdown from "./Countdown";
 import Asteroid from "./Asteroid";
 
-const Planet = (
+const Planet = ({
+  name,
   containerSize,
   planetSize,
   orbitPeriod,
   yearsUntilEvent,
-  fact
-) => {
+  fact,
+}) => {
   const [color, setColor] = useState("#e7e5d7");
   const timeoutID = useRef("");
 
@@ -91,7 +92,12 @@ const Planet = (
     >
       <Animated.View
         style={[
-          { borderColor: color, width: containerSize, height: containerSize },
+          {
+            borderColor: color,
+            width: containerSize,
+            height: containerSize,
+            borderRadius: containerSize / 2,
+          },
           styles.orbit,
           {
             transform: [{ rotate: planetSpin }],
@@ -103,6 +109,8 @@ const Planet = (
             styles.planet,
             { width: widthValue },
             { height: heightValue },
+            { borderRadius: planetSize / 2 },
+            { top: (planetSize /2) * -1 }
           ]}
         >
           <Asteroid radius={planetSize} />
