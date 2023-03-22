@@ -34,7 +34,9 @@ export default function App() {
             name="Spinner"
             component={AsteroidSpinnerScreen}
             screenOptions={{ headerBackTitle: "Back" }}
-          />
+            options={{headerTitle: () => (
+              <Image style={{ width: 125, height: 30 }} source={require("./assets/logo1.png")}  />
+              )}}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
