@@ -6,11 +6,14 @@ import HomeScreen from "./Screens/HomeScreen";
 import CategoryScreen from "./Screens/CategoryScreen";
 import DisasterDetailsScreen from "./Screens/DisasterDetailsScreen";
 import AboutUsScreen from "./Screens/AboutUsScreen";
+import AsteroidSpinnerScreen from "./Screens/AsteroidSpinnerScreen";
+
+// type 'expo r -c' in terminal to run
+// or 'npx expo start'
 
 const Stack = createNativeStackNavigator()
 
 export default function App() {
-
   return (
     <SafeAreaProvider>
       <NavigationContainer>
@@ -27,6 +30,13 @@ export default function App() {
           <Stack.Screen name="About Us" component={AboutUsScreen} screenOptions={{headerBackTitle: "Back"}} options={{headerTitle: () => (
             <Image style={{ width: 125, height: 30 }} source={require("./assets/logo1.png")} />
           )}}/>
+          <Stack.Screen
+            name="Spinner"
+            component={AsteroidSpinnerScreen}
+            screenOptions={{ headerBackTitle: "Back" }}
+            options={{headerTitle: () => (
+              <Image style={{ width: 125, height: 30 }} source={require("./assets/logo1.png")}  />
+              )}}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

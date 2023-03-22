@@ -19,7 +19,7 @@ export default function HomeScreen({navigation}) {
     { id: 3, type: "Wildfires", endpoint: "wildfires"},
     { id: 4, type: "Severe Storms", endpoint: "severeStorms"},
     { id: 5, type: "Asteroids", endpoint: "asteroids"},
-    {id: 6, type: "About Us", endpoint: null}
+    {id: 6, type: "About Us", endpoint: null},
   ];
   
   const [images, setImages] = useState([
@@ -42,7 +42,10 @@ export default function HomeScreen({navigation}) {
   const pressHandler = (endpoint) => {
     if (endpoint) {
       navigation.navigate("Doom List", endpoint);
-    } else {
+    } else if(endpoint === 0 ) {
+      navigation.navigate("Spinner");
+    }
+    else {
       navigation.navigate("About Us");
     }
   };
