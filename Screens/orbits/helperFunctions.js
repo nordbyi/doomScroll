@@ -5,8 +5,8 @@ export const orbit = (spinValue, orbitPeriod) => {
     Animated.timing(spinValue, {
       toValue: 1,
       duration: orbitPeriod,
-      easing: Easing.linear, // Easing is an additional import from react-native
-      useNativeDriver: true, // To make use of native driver for performance
+      easing: Easing.linear,
+      useNativeDriver: true,
     })
   );
 };

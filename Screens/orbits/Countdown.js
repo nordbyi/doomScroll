@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from "react-native";
 import { useFonts, Oswald_400Regular } from "@expo-google-fonts/oswald";
 
 const Countdown = ({yearsUntilEvent, fact, name}) => {
-  const [countdown, setCountdown] = useState(yearsUntilEvent * 365 * 24 * 60 * 60) // calculate time left until doom event
+  const [countdown, setCountdown] = useState(yearsUntilEvent * 365 * 24 * 60 * 60)
 
   useEffect(() => {
     const timerID = setTimeout(() => setCountdown(countdown - 1), 1000);

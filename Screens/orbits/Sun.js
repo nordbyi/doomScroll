@@ -1,9 +1,9 @@
 import React from "react";
-import { Animated, StyleSheet, View, Image, Easing } from "react-native";
+import { StyleSheet, View,} from "react-native";
 
 const Sun = () => {
   return (
-    <View style={styles.sun}>{/* <View style={styles.mercury} /> */}</View>
+    <View style={styles.sun}></View>
   );
 };
 

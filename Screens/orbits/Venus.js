@@ -60,8 +60,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 180,
     height: 180,
-    // borderStyle: "dashed",
-    // borderColor: "#e7e5d7",
     borderWidth: 2,
     borderRadius: 90,
   },
