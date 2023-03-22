@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View, Linking, Image } from "react-native";
+import { StyleSheet, Text, View, Linking, Image, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import { fetchStarPhoto } from '../ApiCalls/apiCalls';
 import { useFonts, Oswald_400Regular } from "@expo-google-fonts/oswald";
 
-export default function DisasterDetailsScreen({ route }) {
+export default function DisasterDetailsScreen({ route, navigation }) {
 
   const [starData, setStarData] = useState({})
   const [loading, setLoading] = useState(false)
@@ -70,6 +70,10 @@ export default function DisasterDetailsScreen({ route }) {
       <View style={styles.box}> 
         {data}
       </View>
+      {route.params.missDistance && <TouchableOpacity style={styles.orbitingBody} onPress={() => navigation.navigate("Spinner", route.params.orbitingBody)}>
+            <Text style={styles.orbitText}>Orbiting Body</Text>
+            <Text style={[styles.text, styles.click]}>(Click Me!)</Text>
+      </TouchableOpacity>}
     </View>
   );
 }
@@ -384,11 +388,33 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   box: {
+    height: '50%', 
     backgroundColor: "#1e2f42",
     borderRadius: 15,
     flex: 1,
     flexDirection: "column",
     marginTop: 20,
+  },
+  orbitingBody: {
+    backgroundColor: "#1e2f42",
+    borderRadius: 15,
+    marginTop: 20,
+    fontFamily: "Oswald_400Regular",
+    fontSize: 30,
+    textAlign: "center",
+    height: '15%'
+  },
+  orbitText: {
+    color: "#e7e5d7",
+    fontFamily: "Oswald_400Regular",
+    fontSize: 20,
+    textAlign: "center",
+    paddingBottom: 15,
+    top: 22,
+    marginBottom: 12
+  },
+  click: {
+    fontSize: 15,
   },
   link: {
     marginLeft: 10,
