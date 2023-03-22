@@ -20,7 +20,6 @@ export default function HomeScreen({navigation}) {
     { id: 4, type: "Severe Storms", endpoint: "severeStorms"},
     { id: 5, type: "Asteroids", endpoint: "asteroids"},
     {id: 6, type: "About Us", endpoint: null},
-    {id: 7, type: "Spinner", endpoint: 0}, // remove when done testing
   ];
   
   const [images, setImages] = useState([

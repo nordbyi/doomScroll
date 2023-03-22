@@ -11,6 +11,7 @@ const Planet = ({
   orbitPeriod,
   yearsUntilEvent,
   fact,
+  orbitingBody
 }) => {
   const [color, setColor] = useState("#e7e5d7");
   const timeoutID = useRef("");
@@ -113,9 +114,10 @@ const Planet = ({
             { top: (planetSize /2) * -1 }
           ]}
         >
-          <Asteroid radius={planetSize} />
+          {orbitingBody === name && <Asteroid radius={planetSize} />}
           <View style={{ display: display.current }}>
             <Countdown
+            name={name}
               display={display}
               yearsUntilEvent={yearsUntilEvent}
               fact={fact}
@@ -132,27 +134,15 @@ export default Planet;
 const styles = StyleSheet.create({
   pressable: {
     position: "absolute",
-    // width: 450,
-    // height: 450,
   },
   orbit: {
     position: "absolute",
-    // width: 450,
-    // height: 450,
-    // borderStyle: "dashed",
-    // borderColor: "#e7e5d7",
     borderWidth: 2,
-    // borderRadius: 225,
     alignItems: "center",
   },
   planet: {
     position: "absolute",
-    top: -9,
-    // left: 215,
     backgroundColor: "#e7e5d7",
-    // width: 18,
-    // height: 18 ,
-    // borderRadius: 9,
     justifyContent: "center",
     alignItems: "center",
   },
