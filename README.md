@@ -58,7 +58,7 @@ This project is designed to allow users to learn more about the latest natural d
 ## Preview 
 <img width="1309" alt="Screen Shot 2023-02-17 at 5 05 06 PM" src="https://user-images.githubusercontent.com/108428451/225041313-8bdf6544-9c74-42c7-90fe-2dbfee58b764.png">
 
-![DSgif1](https://user-images.githubusercontent.com/108428451/227246958-fee5c867-3033-49e9-b5b6-c4949dd2b18d.gif)
+
 ![dsgif2](https://user-images.githubusercontent.com/108428451/227246991-cc48711d-32e9-48d2-a1fb-08250faa7824.gif)
 
 ![dsgif3](https://user-images.githubusercontent.com/108428451/227247013-357061a7-8b34-4cb3-a2e6-f2eaed388a52.gif)
