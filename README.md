@@ -66,6 +66,8 @@ This project is designed to allow users to learn more about the latest natural d
 
 ![dsgif2](https://user-images.githubusercontent.com/108428451/227247856-aafdf7ac-e988-4084-a69c-c5fcf6833ad3.gif)
 
+![dsgif5](https://user-images.githubusercontent.com/108428451/227248552-371070f1-3866-415a-8802-167038868c70.gif)
+
 ## WinsAndChallenges
 
 - Successfully created our first app using React Native
