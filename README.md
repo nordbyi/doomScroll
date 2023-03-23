@@ -60,11 +60,11 @@ This project is designed to allow users to learn more about the latest natural d
 
 ![DSgif1](https://user-images.githubusercontent.com/108428451/227247834-805fbac5-6fad-4e45-8b24-28f6c41f8deb.gif)
 
-![dsgif2](https://user-images.githubusercontent.com/108428451/227247856-aafdf7ac-e988-4084-a69c-c5fcf6833ad3.gif)
-
 ![dsgif3](https://user-images.githubusercontent.com/108428451/227247013-357061a7-8b34-4cb3-a2e6-f2eaed388a52.gif)
 
 ![dsgif4](https://user-images.githubusercontent.com/108428451/227247885-4f261c10-f361-47fc-8bb6-eef0b2e4161d.gif)
+
+![dsgif2](https://user-images.githubusercontent.com/108428451/227247856-aafdf7ac-e988-4084-a69c-c5fcf6833ad3.gif)
 
 ## WinsAndChallenges
 
