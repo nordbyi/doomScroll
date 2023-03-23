@@ -64,8 +64,6 @@ This project is designed to allow users to learn more about the latest natural d
 
 ![dsgif4](https://user-images.githubusercontent.com/108428451/227247885-4f261c10-f361-47fc-8bb6-eef0b2e4161d.gif)
 
-![dsgif2](https://user-images.githubusercontent.com/108428451/227247856-aafdf7ac-e988-4084-a69c-c5fcf6833ad3.gif)
-
 ![dsgif5](https://user-images.githubusercontent.com/108428451/227248552-371070f1-3866-415a-8802-167038868c70.gif)
 
 ## WinsAndChallenges
