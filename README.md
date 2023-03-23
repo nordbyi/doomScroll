@@ -58,16 +58,11 @@ This project is designed to allow users to learn more about the latest natural d
 ## Preview 
 <img width="1309" alt="Screen Shot 2023-02-17 at 5 05 06 PM" src="https://user-images.githubusercontent.com/108428451/225041313-8bdf6544-9c74-42c7-90fe-2dbfee58b764.png">
 
-![loadingPage](https://user-images.githubusercontent.com/108428451/221428141-44f44fd0-48c7-471d-8cea-cc1d141730d3.gif)
+![DSgif1](https://user-images.githubusercontent.com/108428451/227246958-fee5c867-3033-49e9-b5b6-c4949dd2b18d.gif)
+![dsgif2](https://user-images.githubusercontent.com/108428451/227246991-cc48711d-32e9-48d2-a1fb-08250faa7824.gif)
 
-![detailsPage](https://user-images.githubusercontent.com/108428451/221428145-c9d995a0-2765-4746-aa07-119a5a082573.gif)
-
-![backButton](https://user-images.githubusercontent.com/108428451/221428150-08cab7b4-37c4-4072-afd5-2be341a4dc52.gif)
-
-![searchBar](https://user-images.githubusercontent.com/108428451/221428159-916ec8f1-d1b4-4c69-8eec-902162f85ac4.gif)
-
-![asteroidPage](https://user-images.githubusercontent.com/108428451/221428163-a672cde6-b223-41fe-926b-900b485efb98.gif)
-
+![dsgif3](https://user-images.githubusercontent.com/108428451/227247013-357061a7-8b34-4cb3-a2e6-f2eaed388a52.gif)
+![dsgif4](https://user-images.githubusercontent.com/108428451/227247054-7613ebdd-d79d-4296-b10e-22cb62900b18.gif)
 
 ## WinsAndChallenges
 
