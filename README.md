@@ -62,8 +62,6 @@ This project is designed to allow users to learn more about the latest natural d
 </p>
 
 
-<img width="1309" alt="Screen Shot 2023-02-17 at 5 05 06 PM" src="https://user-images.githubusercontent.com/108428451/225041313-8bdf6544-9c74-42c7-90fe-2dbfee58b764.png">
-
 ## WinsAndChallenges
 
 - Successfully created our first app using React Native
