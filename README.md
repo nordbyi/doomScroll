@@ -62,7 +62,7 @@ This project is designed to allow users to learn more about the latest natural d
 </p>
 
 
-## WinsAndChallenges
+## Wins
 
 - Successfully created our first app using React Native
 - Successfully implemented React Native Styles animated solar system and loading screen
@@ -72,10 +72,6 @@ This project is designed to allow users to learn more about the latest natural d
 - Successfully implemented user search filter
 - Succesfully brought in data from multiple APIs
 - Successfully implemented Google Maps API
-
-- Using expo and Xcode was a learning curve
-- Trying to impliment cypress testing proved to be extremely challenging and was ultimately scrapped. Would impliment Jest if the project allowed for more time.
-- We would have liked to use more images and include map styling.  
 
 ## Authors
 
