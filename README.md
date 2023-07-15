@@ -14,6 +14,25 @@ Doom Scroll is an app that allows users to keep up with natural disasters happen
   - [WinsAndChallenges](#winsandchallenges)
   - [Authors](#Authors)
 
+
+## Abstract 
+
+This project is designed to allow users to learn more about the latest natural disasters happening all over the globe. As the user opens the app, a splash screen displays with the app logo. There is then a loading screen featuring the app logo and a spinning asteroid. The main screen includes all of the disaster categories, including earthquakes, volcanoes, wildfires, severe storms, and asteroids. A user can click on each category and a new screen view will open with a list of all of the disaster events in that category. A user can also search for a particular disaster in that list. Once a user clicks on an event, they will be taken to a new details screen. The details view includes a map and more information, which is different depending on the type of disaster. The asteroid details view also include Nasa's astronomy photo of the day. The user can click a back button on any of the screen views to navigate back to the main screen. If there is an lag from the server, the loading screen will appear between page loads. 
+
+## Preview 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/108428451/227247013-357061a7-8b34-4cb3-a2e6-f2eaed388a52.gif" width="350" />
+&nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="https://user-images.githubusercontent.com/108428451/227252664-e3826440-001c-4081-89f1-8920b05adb53.gif" width="350" />
+  &nbsp; &nbsp; &nbsp; &nbsp;
+<img src="https://user-images.githubusercontent.com/108428451/227247834-805fbac5-6fad-4e45-8b24-28f6c41f8deb.gif" width="350" />
+&nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="https://user-images.githubusercontent.com/108428451/227247885-4f261c10-f361-47fc-8bb6-eef0b2e4161d.gif" width="350" />
+  &nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="https://user-images.githubusercontent.com/108428451/227248552-371070f1-3866-415a-8802-167038868c70.gif" width="350" />
+</p>
+
 ## Setup
 
 - Clone down this repo [here](https://github.com/jheidepriem/doomScroll)
@@ -38,29 +57,7 @@ Doom Scroll is an app that allows users to keep up with natural disasters happen
   - Xcode
   - Google Chrome or Web Browser of User's Choice
   - Mac OS Terminal/Command Line
-  - Node.js 
-
-
-## Abstract 
-
-This project is designed to allow users to learn more about the latest natural disasters happening all over the globe. As the user opens the app, a splash screen displays with the app logo. There is then a loading screen featuring the app logo and a spinning asteroid. The main screen includes all of the disaster categories, including earthquakes, volcanoes, wildfires, severe storms, and asteroids. A user can click on each category and a new screen view will open with a list of all of the disaster events in that category. A user can also search for a particular disaster in that list. Once a user clicks on an event, they will be taken to a new details screen. The details view includes a map and more information, which is different depending on the type of disaster. The asteroid details view also include Nasa's astronomy photo of the day. The user can click a back button on any of the screen views to navigate back to the main screen. If there is an lag from the server, the loading screen will appear between page loads. 
-
-
-## Preview 
-
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/108428451/227247013-357061a7-8b34-4cb3-a2e6-f2eaed388a52.gif" width="350" />
-&nbsp; &nbsp; &nbsp; &nbsp;
-  <img src="https://user-images.githubusercontent.com/108428451/227252664-e3826440-001c-4081-89f1-8920b05adb53.gif" width="350" />
-  &nbsp; &nbsp; &nbsp; &nbsp;
-<img src="https://user-images.githubusercontent.com/108428451/227247834-805fbac5-6fad-4e45-8b24-28f6c41f8deb.gif" width="350" />
-&nbsp; &nbsp; &nbsp; &nbsp;
-  <img src="https://user-images.githubusercontent.com/108428451/227247885-4f261c10-f361-47fc-8bb6-eef0b2e4161d.gif" width="350" />
-  &nbsp; &nbsp; &nbsp; &nbsp;
-  <img src="https://user-images.githubusercontent.com/108428451/227248552-371070f1-3866-415a-8802-167038868c70.gif" width="350" />
-</p>
-
+  - Node.js
 
 ## Wins
 
